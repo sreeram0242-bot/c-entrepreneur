@@ -190,9 +190,9 @@ function Index() {
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
           <a href="#" className="flex min-w-0 items-center gap-2">
             <img
-              src="/logo.svg"
+              src="/clogo.png"
               alt="C-Entrepreneurs Logo"
-              className="h-11 w-11 rounded-full border-2 border-navy/30 shadow-md object-cover shrink-0 overflow-hidden bg-white"
+              className="h-11 w-11 rounded-full border border-navy/20 shadow-md object-cover shrink-0"
             />
             <div className="flex min-w-0 flex-col leading-tight">
               <span className="truncate text-[11px] font-bold tracking-[0.15em] text-navy sm:text-[13px]">C-ENTREPRENEURS</span>
