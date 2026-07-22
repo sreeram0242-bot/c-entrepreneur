@@ -468,7 +468,7 @@ function Index() {
             </h3>
           </div>
           <a
-            href="mailto:hello@c-entrepreneurs.com"
+            href="mailto:centrepreneursb2c@gmail.com"
             className="group inline-flex items-center gap-3 rounded-full bg-primary-foreground px-6 py-3.5 text-sm font-bold text-navy shadow-2xl transition hover:bg-royal hover:text-primary-foreground sm:px-8 sm:py-4 sm:text-base"
           >
             <Send className="h-5 w-5 shrink-0" />
