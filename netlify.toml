@@ -4,7 +4,8 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  NITRO_PRESET = "netlify"
 
-[[edge_functions]]
-  function = "server"
-  path = "/*"
+[functions]
+  directory = ".netlify/functions-internal"
+  node_bundler = "esbuild"
