@@ -1640,23 +1640,41 @@ function ContactSection() {
 
             {/* Secondary Quick Actions */}
             <div className="mt-5 border-t border-border/80 pt-4 text-xs text-muted-foreground">
-              <p className="mb-2 text-[11px] font-medium text-navy/70">Need an immediate response?</p>
-              <div className="flex gap-2">
+              <p className="mb-2.5 text-[11px] font-medium text-navy/70">Connect with us directly:</p>
+              <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
                 <a
                   href="https://wa.me/919025360572?text=Hi%20C-Entrepreneurs%2C%20I%20just%20submitted%20a%20project%20inquiry."
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50/80 px-3 py-2 text-xs font-bold text-emerald-700 transition hover:bg-emerald-600 hover:text-white cursor-pointer"
+                  className="flex items-center justify-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50/80 px-2.5 py-2 text-[11px] font-bold text-emerald-700 transition hover:bg-emerald-600 hover:text-white cursor-pointer"
                 >
                   <MessageCircle className="h-3.5 w-3.5" />
                   <span>WhatsApp</span>
                 </a>
                 <a
                   href="tel:+919025360572"
-                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full border border-navy/20 bg-background px-3 py-2 text-xs font-bold text-navy transition hover:bg-navy hover:text-white cursor-pointer"
+                  className="flex items-center justify-center gap-1.5 rounded-full border border-navy/20 bg-background px-2.5 py-2 text-[11px] font-bold text-navy transition hover:bg-navy hover:text-white cursor-pointer"
                 >
                   <Phone className="h-3.5 w-3.5" />
-                  <span>Call Direct</span>
+                  <span>Call</span>
+                </a>
+                <a
+                  href="https://www.instagram.com/c__entrepreneurs__"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 rounded-full border border-pink-500/30 bg-pink-50/80 px-2.5 py-2 text-[11px] font-bold text-pink-700 transition hover:bg-pink-600 hover:text-white cursor-pointer"
+                >
+                  <Instagram className="h-3.5 w-3.5" />
+                  <span>Instagram</span>
+                </a>
+                <a
+                  href="https://in.linkedin.com/in/c-entrepreneurs-758a0341b"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex items-center justify-center gap-1.5 rounded-full border border-sky-600/30 bg-sky-50/80 px-2.5 py-2 text-[11px] font-bold text-sky-800 transition hover:bg-sky-600 hover:text-white cursor-pointer"
+                >
+                  <Linkedin className="h-3.5 w-3.5" />
+                  <span>LinkedIn</span>
                 </a>
               </div>
             </div>

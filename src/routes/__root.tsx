@@ -119,6 +119,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://c-entrepreneur.vercel.app/" },
       { property: "og:image", content: "https://c-entrepreneur.vercel.app/clogo.png" },
+      {
+        property: "og:image:secure_url",
+        content: "https://c-entrepreneur.vercel.app/clogo.png",
+      },
+      { property: "og:image:type", content: "image/png" },
+      { property: "og:image:width", content: "512" },
+      { property: "og:image:height", content: "512" },
+      {
+        property: "og:image:alt",
+        content:
+          "C-Entrepreneurs - Best Software Company & Digital Marketing Agency in Karur, Tamil Nadu",
+      },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
       {
@@ -138,6 +150,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     ],
     links: [
       { rel: "canonical", href: "https://c-entrepreneur.vercel.app/" },
+      { rel: "manifest", href: "/manifest.json" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/clogo.png?v=2", type: "image/png" },
       { rel: "shortcut icon", href: "/favicon.ico?v=2" },
@@ -183,6 +196,16 @@ function RootShell({ children }: { children: ReactNode }) {
           "C-Entrepreneurs is the premier software company and digital marketing agency in Karur, Tamil Nadu. We specialize in custom software development, POS billing systems, web applications, Android mobile apps, SEO, and social media marketing.",
         email: "centrepreneursb2c@gmail.com",
         telephone: "+91-90253-60572",
+        contactPoint: [
+          {
+            "@type": "ContactPoint",
+            telephone: "+91-90253-60572",
+            contactType: "customer service",
+            email: "centrepreneursb2c@gmail.com",
+            areaServed: "IN",
+            availableLanguage: ["English", "Tamil"],
+          },
+        ],
         priceRange: "₹₹",
         currenciesAccepted: "INR, USD",
         paymentAccepted: "Cash, Credit Card, UPI, Net Banking",

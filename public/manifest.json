@@ -1,0 +1,21 @@
+{
+  "name": "C-Entrepreneurs | Best Software Company & Digital Marketing in Karur",
+  "short_name": "C-Entrepreneurs",
+  "description": "Leading software company and digital marketing agency in Karur, Tamil Nadu. Custom software, POS billing systems, web apps, and SEO.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#0a0d17",
+  "icons": [
+    {
+      "src": "/clogo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/clogo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
