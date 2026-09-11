@@ -111,6 +111,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Custom Web & Android app development, POS solutions, and high-impact startup internships.",
       },
+      {
+        name: "google-site-verification",
+        content: "VbvJ4F6jQNC4GD6ESCZnav91MS-nWC1kbEij4emY8-8",
+      },
       { name: "twitter:image", content: "https://c-entrepreneur.vercel.app/clogo.png" },
     ],
     links: [
@@ -188,6 +192,10 @@ function RootShell({ children }: { children: ReactNode }) {
   return (
     <html lang="en">
       <head>
+        <meta
+          name="google-site-verification"
+          content="VbvJ4F6jQNC4GD6ESCZnav91MS-nWC1kbEij4emY8-8"
+        />
         <HeadContent />
         <script
           type="application/ld+json"

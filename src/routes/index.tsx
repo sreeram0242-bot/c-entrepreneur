@@ -59,6 +59,10 @@ export const Route = createFileRoute("/")({
           "Custom Web & Android app development, POS solutions, and high-impact startup internships.",
       },
       { name: "twitter:image", content: "https://c-entrepreneur.vercel.app/clogo.png" },
+      {
+        name: "google-site-verification",
+        content: "VbvJ4F6jQNC4GD6ESCZnav91MS-nWC1kbEij4emY8-8",
+      },
     ],
     links: [{ rel: "canonical", href: "https://c-entrepreneur.vercel.app/" }],
   }),
