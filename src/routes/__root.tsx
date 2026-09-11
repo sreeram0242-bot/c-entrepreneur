@@ -173,6 +173,10 @@ function RootShell({ children }: { children: ReactNode }) {
           "Custom Softwares in Karur",
         ],
         url: "https://c-entrepreneur.vercel.app",
+        sameAs: [
+          "https://www.instagram.com/c__entrepreneurs__",
+          "https://in.linkedin.com/in/c-entrepreneurs-758a0341b",
+        ],
         logo: "https://c-entrepreneur.vercel.app/clogo.png",
         image: "https://c-entrepreneur.vercel.app/clogo.png",
         description:

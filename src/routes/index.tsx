@@ -29,6 +29,7 @@ import {
   Sparkles,
   X,
   CheckCircle2,
+  Linkedin,
 } from "lucide-react";
 
 
@@ -656,7 +657,30 @@ function Index() {
               </a>
             </p>
           </div>
-          <div className="flex flex-wrap items-center justify-center gap-4">
+          <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
+            <div className="flex items-center gap-2">
+              <a
+                href="https://www.instagram.com/c__entrepreneurs__"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="C-Entrepreneurs Instagram"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-navy/20 bg-background text-navy transition hover:border-royal hover:bg-royal hover:text-white"
+                title="Follow on Instagram"
+              >
+                <Instagram className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href="https://in.linkedin.com/in/c-entrepreneurs-758a0341b"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="C-Entrepreneurs LinkedIn"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-navy/20 bg-background text-navy transition hover:border-royal hover:bg-royal hover:text-white"
+                title="Connect on LinkedIn"
+              >
+                <Linkedin className="h-3.5 w-3.5" />
+              </a>
+            </div>
+            <span className="hidden sm:inline text-muted-foreground/40">·</span>
             <a
               href="mailto:centrepreneursb2c@gmail.com"
               className="font-medium text-navy hover:text-royal transition-colors"
