@@ -1,5 +1,5 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   TrendingUp,
   Megaphone,
@@ -17,27 +17,50 @@ import {
   Instagram,
   MessageCircle,
   ArrowRight,
+  ArrowLeft,
+  ExternalLink,
+  Monitor,
+  Smartphone,
+  ChevronLeft,
+  ChevronRight,
+  X,
 } from "lucide-react";
 
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "C-Entrepreneurs | Build. Learn. Grow." },
+      { title: "C-Entrepreneurs | Build. Learn. Grow. — Software & Marketing Agency" },
       {
         name: "description",
         content:
-          "C-Entrepreneurs helps emerging talent build real companies through business development, marketing, sales, and development roles.",
+          "C-Entrepreneurs develops custom Web apps, Android applications, POS systems, and drives real business growth through marketing and student entrepreneurship programs.",
       },
+      {
+        name: "keywords",
+        content:
+          "C-Entrepreneurs, C Entrepreneurs, software development agency, web app development, Android apps, POS billing software, startup accelerator, tech internship",
+      },
+      { property: "og:site_name", content: "C-Entrepreneurs" },
       { property: "og:title", content: "C-Entrepreneurs | Build. Learn. Grow." },
       {
         property: "og:description",
         content:
-          "Explore C-Entrepreneurs roles in business development, marketing, sales, and web and app development.",
+          "Custom Web & Android app development, POS solutions, and high-impact startup internships. We turn bold ideas into real, functioning companies.",
       },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://c-entrepreneurs.com/" },
+      { property: "og:image", content: "https://c-entrepreneurs.com/clogo.png" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "C-Entrepreneurs | Build. Learn. Grow." },
+      {
+        name: "twitter:description",
+        content:
+          "Custom Web & Android app development, POS solutions, and high-impact startup internships.",
+      },
+      { name: "twitter:image", content: "https://c-entrepreneurs.com/clogo.png" },
     ],
+    links: [{ rel: "canonical", href: "https://c-entrepreneurs.com/" }],
   }),
   component: Index,
 });
@@ -105,6 +128,98 @@ const perks = [
   { icon: BarChart3, label: "Skill Development" },
   { icon: Award, label: "Internship Certificate" },
   { icon: Rocket, label: "Career Growth Opportunities" },
+];
+
+// ─── Projects data ───────────────────────────────────────────────────────────
+type DeviceType = "pc" | "android";
+
+const projects: {
+  id: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  tags: string[];
+  device: DeviceType;
+  image: string;
+  accentHex: string; // hex for inline style compatibility
+}[] = [
+  {
+    id: "gymflow",
+    title: "GymFlow",
+    subtitle: "Gym Management Platform",
+    description:
+      "A full-featured gym management system with NFC-powered check-ins, real-time member tracking, payment dues alerts, biometric attendance, and live financial analytics — built for gym owners.",
+    tags: ["Web App", "NFC Check-in", "Real-time", "Analytics"],
+    device: "pc",
+    image: "/projects/Screenshot 2026-09-11 120911.png",
+    accentHex: "#3b6fd4",
+  },
+  {
+    id: "clouddine",
+    title: "CloudDine",
+    subtitle: "Restaurant Order Management",
+    description:
+      "A smart restaurant dashboard managing live orders, table assignments, waiter calls, revenue analytics, and kitchen workflow — all in a single elegant interface.",
+    tags: ["Restaurant Tech", "Live Orders", "QR Menu", "Dashboard"],
+    device: "pc",
+    image: "/projects/Screenshot 2026-09-11 121730.png",
+    accentHex: "#c07a2a",
+  },
+  {
+    id: "engineers-kitchen-desktop",
+    title: "Engineers Kitchen",
+    subtitle: "Café POS & Billing — Web",
+    description:
+      "A lightweight desktop POS for a café featuring category-based menu, cart management, bill generation with customer details, and seamless order tracking.",
+    tags: ["POS", "Web Billing", "Café", "Offline-Ready"],
+    device: "pc",
+    image: "/projects/Screenshot 2026-09-11 121900.png",
+    accentHex: "#4a8c4a",
+  },
+  {
+    id: "engineers-kitchen-mobile",
+    title: "Engineers Kitchen",
+    subtitle: "Café POS & Billing — Mobile",
+    description:
+      "The mobile version of Engineers Kitchen POS — optimized for phones with a thumb-friendly cart, smart search, category filter tabs, and one-tap bill save.",
+    tags: ["POS", "Mobile", "Café", "Android"],
+    device: "android",
+    image: "/projects/Screenshot 2026-09-11 124951.png",
+    accentHex: "#4a8c4a",
+  },
+  {
+    id: "cafe-bistro",
+    title: "Cafe Bistro",
+    subtitle: "Offline Café Billing POS",
+    description:
+      "A fully offline-capable café billing system supporting Dine-In & Parcel, Veg/Non-Veg filtering, category menus, bill printing, UPI/Cash/Card payments, and multi-item cart.",
+    tags: ["Offline POS", "Web Billing", "Print", "Multi-Payment"],
+    device: "pc",
+    image: "/projects/Screenshot 2026-09-11 124446.png",
+    accentHex: "#1e7a5a",
+  },
+  {
+    id: "royal-car-wash",
+    title: "Royal Car Wash",
+    subtitle: "Automotive Detailing Platform",
+    description:
+      "Karur's premier automotive detailing centre — with snow foam wash, 9H ceramic nano-coating, real-time vehicle tracking, slot booking, and WhatsApp service updates.",
+    tags: ["Mobile Web", "Booking", "Automotive", "Tracking"],
+    device: "android",
+    image: "/projects/Screenshot 2026-09-11 122225.png",
+    accentHex: "#c0392b",
+  },
+  {
+    id: "happy-events",
+    title: "Happy Events",
+    subtitle: "Event Planning & Management",
+    description:
+      "From elegant weddings to grand corporate events — Happy Events is a mobile-first event planning platform showcasing premium packages, service galleries, and a seamless inquiry flow.",
+    tags: ["Mobile Web", "Events", "Wedding", "Corporate"],
+    device: "android",
+    image: "/projects/Screenshot 2026-09-11 124739.png",
+    accentHex: "#b8860b",
+  },
 ];
 
 function IntroSplash() {
@@ -202,6 +317,7 @@ function Index() {
           <nav className="hidden items-center gap-6 text-sm font-medium text-navy lg:flex lg:gap-8">
             <a href="#concept" className="hover:text-royal transition-colors">The Concept</a>
             <a href="#internship" className="hover:text-royal transition-colors">Internship</a>
+            <a href="#projects" className="hover:text-royal transition-colors">Projects</a>
             <a href="#why" className="hover:text-royal transition-colors">Why Us</a>
             <a href="#apply" className="hover:text-royal transition-colors">Apply</a>
           </nav>
@@ -423,6 +539,9 @@ function Index() {
         </div>
       </section>
 
+      {/* PROJECTS SHOWCASE */}
+      <ProjectShowcase />
+
       {/* CONCEPT */}
       <section id="concept" className="border-t border-border bg-secondary py-4 sm:py-24">
         <div className="mx-auto grid max-w-7xl grid-cols-2 gap-6 px-4 sm:px-6 md:gap-10">
@@ -468,7 +587,7 @@ function Index() {
             </h3>
           </div>
           <a
-            href="mailto:centrepreneursb2c@gmail.com"
+            href="mailto:hello@c-entrepreneurs.com"
             className="group inline-flex items-center gap-3 rounded-full bg-primary-foreground px-6 py-3.5 text-sm font-bold text-navy shadow-2xl transition hover:bg-royal hover:text-primary-foreground sm:px-8 sm:py-4 sm:text-base"
           >
             <Send className="h-5 w-5 shrink-0" />
@@ -489,6 +608,565 @@ function Index() {
         </div>
       </footer>
     </div>
+  );
+}
+
+// ─── PC Monitor Frame ────────────────────────────────────────────────────────
+function PCFrame({
+  src,
+  alt,
+  compact = false,
+}: {
+  src: string;
+  alt: string;
+  compact?: boolean;
+}) {
+  return (
+    <div
+      className="w-full select-none"
+      style={{
+        maxWidth: compact ? "280px" : "780px",
+        margin: "0 auto",
+      }}
+    >
+      {/* PC Monitor Screen Bezel (Clean border, NO browser dots/address bar) */}
+      <div
+        style={{
+          background: "#12141a",
+          border: compact ? "3px solid #282c37" : "6px solid #282c37",
+          borderBottom: "none",
+          borderRadius: compact ? "6px 6px 0 0" : "12px 12px 0 0",
+          overflow: "hidden",
+          lineHeight: 0,
+          boxShadow: "0 8px 24px rgba(0,0,0,0.5)",
+        }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+            objectFit: "contain",
+          }}
+          draggable={false}
+        />
+      </div>
+
+      {/* Monitor bottom bezel / chin */}
+      <div
+        style={{
+          background: "linear-gradient(180deg, #222631 0%, #171921 100%)",
+          borderRadius: compact ? "0 0 5px 5px" : "0 0 8px 8px",
+          height: compact ? "9px" : "15px",
+          border: compact ? "1px solid #333846" : "2px solid #333846",
+          borderTop: "none",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            width: compact ? "14px" : "24px",
+            height: "2px",
+            background: "#4b5162",
+            borderRadius: "1px",
+          }}
+        />
+      </div>
+
+      {/* Monitor stand neck and base plate */}
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <div
+          style={{
+            width: compact ? "26px" : "44px",
+            height: compact ? "9px" : "16px",
+            background: "linear-gradient(180deg, #282c37 0%, #1a1c24 100%)",
+            border: "1px solid #383e4e",
+            borderTop: "none",
+          }}
+        />
+        <div
+          style={{
+            width: compact ? "80px" : "140px",
+            height: compact ? "4px" : "7px",
+            background: "linear-gradient(180deg, #383e4e 0%, #1f222b 100%)",
+            borderRadius: "2px 2px 0 0",
+            boxShadow: "0 2px 6px rgba(0,0,0,0.6)",
+          }}
+        />
+      </div>
+    </div>
+  );
+}
+
+// ─── Mobile Phone Frame (Ultra-Thin Bezel) ──────────────────────────────────
+function AndroidFrame({
+  src,
+  alt,
+  compact = false,
+}: {
+  src: string;
+  alt: string;
+  compact?: boolean;
+}) {
+  return (
+    <div
+      style={{
+        position: "relative",
+        background: "linear-gradient(160deg, #2a3142 0%, #151922 100%)",
+        borderRadius: compact ? "14px" : "26px",
+        padding: compact ? "3px 2.5px 3.5px" : "5.5px 5px 6.5px",
+        boxShadow: compact
+          ? "0 0 0 1px #3d4659, 0 0 0 2px #0f1218, 0 8px 20px rgba(0,0,0,0.55)"
+          : "0 0 0 1.5px #3d4659, 0 0 0 2.5px #0f1218, 0 16px 36px rgba(0,0,0,0.45)",
+        display: "flex",
+        flexDirection: "column",
+        alignItems: "center",
+        gap: compact ? "2px" : "4px",
+        width: "100%",
+        maxWidth: compact ? "92px" : "240px",
+        margin: "0 auto",
+      }}
+    >
+      {/* Top minimal punch-hole camera dot (Thin bezel style) */}
+      <div
+        style={{
+          width: compact ? "4px" : "6px",
+          height: compact ? "4px" : "6px",
+          borderRadius: "50%",
+          background: "#08090c",
+          border: "0.8px solid #363d4e",
+        }}
+      />
+
+      {/* Screen container: razor-thin borders, uses natural image height, NO crop */}
+      <div
+        style={{
+          width: "100%",
+          borderRadius: compact ? "11px" : "21px",
+          overflow: "hidden",
+          background: "#000",
+          lineHeight: 0,
+          boxShadow: "inset 0 0 0 1px rgba(255,255,255,0.08)",
+        }}
+      >
+        <img
+          src={src}
+          alt={alt}
+          style={{
+            width: "100%",
+            height: "auto",
+            display: "block",
+            objectFit: "contain",
+          }}
+          draggable={false}
+        />
+      </div>
+
+      {/* Android bottom gesture pill */}
+      <div
+        style={{
+          width: compact ? "24px" : "42px",
+          height: compact ? "1.5px" : "2.5px",
+          borderRadius: "2px",
+          background: "#3e4556",
+        }}
+      />
+    </div>
+  );
+}
+
+// ─── Project Detail Overlay ───────────────────────────────────────────────────
+function ProjectDetail({
+  project,
+  onClose,
+}: {
+  project: (typeof projects)[0];
+  onClose: () => void;
+}) {
+  // Lock body scroll while open & support Escape key
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") onClose();
+    };
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = "";
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [onClose]);
+
+  return (
+    <div
+      id="project-detail-overlay"
+      style={{
+        position: "fixed",
+        inset: 0,
+        zIndex: 500,
+        display: "flex",
+        flexDirection: "column",
+        background: "#ffffff",
+        animation: "detail-in 0.3s cubic-bezier(0.22, 1, 0.36, 1) both",
+      }}
+    >
+      {/* Header bar */}
+      <div className="flex items-center justify-between gap-3 border-b border-border bg-white/95 px-4 py-3 backdrop-blur-md sm:px-6 sm:py-4">
+        <div className="flex items-center gap-3">
+          <button
+            id="project-detail-back"
+            onClick={onClose}
+            className="inline-flex items-center gap-2 rounded-full border border-navy/20 bg-navy/5 px-3.5 py-1.5 text-xs font-bold text-navy transition hover:bg-navy/10 sm:px-4 sm:py-2 sm:text-sm"
+            aria-label="Back to projects"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            <span>Back</span>
+          </button>
+
+          <div className="min-w-0">
+            <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-royal sm:text-xs">
+              Project Showcase
+            </p>
+            <h2 className="truncate text-base font-black text-navy sm:text-xl">
+              {project.title}
+            </h2>
+          </div>
+        </div>
+
+        <div className="flex items-center gap-2">
+          <span className="hidden rounded-full border border-navy/15 bg-navy/5 px-3 py-1 text-xs font-bold uppercase tracking-wider text-navy sm:inline-flex">
+            {project.device === "pc" ? "Web App" : "Android App"}
+          </span>
+
+          <button
+            onClick={onClose}
+            className="flex h-8 w-8 items-center justify-center rounded-full border border-navy/15 bg-navy/5 text-navy transition hover:bg-navy hover:text-white sm:h-9 sm:w-9"
+            aria-label="Close project view"
+          >
+            <X className="h-4 w-4 sm:h-5 sm:w-5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Scrollable body */}
+      <div className="flex-1 overflow-y-auto bg-slate-50/70 px-4 py-6 sm:px-6 sm:py-10">
+        <div className="mx-auto flex max-w-4xl flex-col items-center gap-8">
+          {/* Device Mockup */}
+          <div
+            className="w-full flex justify-center py-4 rounded-3xl"
+            style={{
+              background: `radial-gradient(circle at 50% 40%, ${project.accentHex}15 0%, transparent 65%)`,
+            }}
+          >
+            {project.device === "pc" ? (
+              <div className="w-full max-w-3xl">
+                <PCFrame src={project.image} alt={project.title} />
+              </div>
+            ) : (
+              <div className="w-full max-w-[240px]">
+                <AndroidFrame src={project.image} alt={project.title} />
+              </div>
+            )}
+          </div>
+
+          {/* Project Details Card */}
+          <div className="w-full rounded-2xl border border-border bg-white p-5 shadow-xl sm:p-8">
+            <div className="flex flex-wrap items-center justify-between gap-3 border-b border-border pb-5">
+              <div className="flex items-center gap-3">
+                <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-navy/15 bg-navy/5 text-navy">
+                  {project.device === "pc" ? <Monitor className="h-6 w-6" /> : <Smartphone className="h-6 w-6" />}
+                </div>
+                <div>
+                  <h3 className="text-xl font-black text-navy sm:text-2xl">{project.title}</h3>
+                  <p className="text-xs text-muted-foreground sm:text-sm">{project.subtitle}</p>
+                </div>
+              </div>
+
+              <span className="rounded-full bg-navy px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground shadow-sm">
+                {project.device === "pc" ? "PC / Desktop" : "Android Mobile"}
+              </span>
+            </div>
+
+            <div className="mt-5">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-royal">Overview</p>
+              <p className="mt-2 text-sm leading-relaxed text-foreground/85 sm:text-base">
+                {project.description}
+              </p>
+            </div>
+
+            <div className="mt-6">
+              <p className="text-xs font-bold uppercase tracking-[0.2em] text-royal">Tags & Technologies</p>
+              <div className="mt-2.5 flex flex-wrap gap-2">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-navy/15 bg-navy/5 px-3 py-1 text-xs font-bold text-navy"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            {/* Action buttons */}
+            <div className="mt-8 flex flex-wrap items-center gap-3 border-t border-border pt-5">
+              <a
+                href="#contact"
+                onClick={onClose}
+                className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-xs font-bold text-primary-foreground shadow-lg shadow-navy/20 transition hover:bg-royal sm:text-sm"
+              >
+                <ExternalLink className="h-4 w-4" />
+                <span>Discuss Similar Project</span>
+              </a>
+
+              <button
+                onClick={onClose}
+                className="inline-flex items-center gap-2 rounded-full border border-navy/20 bg-white px-5 py-3 text-xs font-bold text-navy transition hover:bg-navy/5 sm:text-sm"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                <span>Back to All Projects</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Projects Showcase Section ────────────────────────────────────────────────
+function ProjectShowcase() {
+  const [selected, setSelected] = useState<string | null>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const selectedProject = projects.find((p) => p.id === selected) ?? null;
+
+  // Push history state when opening, handle hardware & browser back navigation
+  useEffect(() => {
+    if (selected) {
+      window.history.pushState({ projectOpen: selected }, "");
+    }
+  }, [selected]);
+
+  useEffect(() => {
+    const onPop = () => {
+      setSelected(null);
+    };
+    window.addEventListener("popstate", onPop);
+    return () => window.removeEventListener("popstate", onPop);
+  }, []);
+
+  const handleClose = () => {
+    if (window.history.state?.projectOpen) {
+      window.history.back();
+    } else {
+      setSelected(null);
+    }
+  };
+
+  const openProject = (id: string) => {
+    setSelected(id);
+  };
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 320, behavior: "smooth" });
+    }
+  };
+
+  return (
+    <>
+      {selectedProject && <ProjectDetail project={selectedProject} onClose={handleClose} />}
+
+      <section id="projects" className="bg-background pt-12 pb-16 sm:pt-16 sm:pb-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6">
+          {/* Section header badge */}
+          <div className="mb-6 flex items-center justify-center sm:mb-8">
+            <div className="h-px flex-1 bg-navy/20" />
+            <div className="mx-3 bg-navy px-5 py-2.5 text-center text-[11px] font-bold tracking-[0.2em] text-primary-foreground sm:mx-4 sm:px-10 sm:py-3 sm:text-sm sm:tracking-[0.3em]">
+              OUR PROJECTS
+            </div>
+            <div className="h-px flex-1 bg-navy/20" />
+          </div>
+
+          <div className="mb-6 flex flex-col items-center justify-between gap-4 text-center sm:mb-8 sm:flex-row sm:text-left">
+            <div>
+              <h2 className="font-display text-2xl font-black text-navy sm:text-3xl">
+                Featured Client Work
+              </h2>
+              <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
+                Real software & apps built and launched by our team — touch or click any project for details.
+              </p>
+            </div>
+
+            {/* Desktop Carousel Arrows */}
+            <div className="hidden items-center gap-2 sm:flex">
+              <button
+                onClick={scrollLeft}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-navy/20 bg-background text-navy shadow-sm transition hover:bg-navy hover:text-white"
+                aria-label="Scroll left"
+              >
+                <ChevronLeft className="h-5 w-5" />
+              </button>
+              <button
+                onClick={scrollRight}
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-navy/20 bg-background text-navy shadow-sm transition hover:bg-navy hover:text-white"
+                aria-label="Scroll right"
+              >
+                <ChevronRight className="h-5 w-5" />
+              </button>
+            </div>
+          </div>
+
+          {/* Horizontal scroll track */}
+          <div
+            ref={scrollRef}
+            style={{
+              display: "flex",
+              gap: "20px",
+              overflowX: "auto",
+              paddingBottom: "20px",
+              paddingTop: "8px",
+              paddingLeft: "4px",
+              paddingRight: "4px",
+              scrollSnapType: "x mandatory",
+              WebkitOverflowScrolling: "touch",
+              scrollbarWidth: "none",
+            }}
+            className="projects-scroll"
+          >
+            {projects.map((project) => (
+              <button
+                key={project.id}
+                id={`project-card-${project.id}`}
+                onClick={() => openProject(project.id)}
+                style={{
+                  flexShrink: 0,
+                  width: "clamp(260px, 80vw, 320px)",
+                  scrollSnapAlign: "start",
+                  cursor: "pointer",
+                  background: "none",
+                  border: "none",
+                  padding: 0,
+                  textAlign: "left",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                {/* Card */}
+                <div
+                  className="project-card group flex h-full w-full flex-col overflow-hidden rounded-2xl border"
+                  style={{
+                    backgroundColor: "oklch(0.12 0.02 260)",
+                    backgroundImage:
+                      "radial-gradient(circle at 18% 18%, oklch(0.26 0.12 265) 0%, transparent 60%), radial-gradient(circle at 82% 82%, oklch(0.2 0.09 265) 0%, transparent 60%), linear-gradient(150deg, #111728 0%, #0a0d15 100%)",
+                    borderColor: "oklch(0.35 0.12 265 / 0.45)",
+                    transition:
+                      "transform 0.3s cubic-bezier(0.22,1,0.36,1), box-shadow 0.3s, border-color 0.3s",
+                    boxShadow: "0 8px 24px rgba(5, 10, 25, 0.4)",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.transform = "translateY(-6px)";
+                    (e.currentTarget as HTMLDivElement).style.borderColor = "oklch(0.52 0.22 265 / 0.85)";
+                    (e.currentTarget as HTMLDivElement).style.boxShadow =
+                      `0 18px 42px rgba(8, 15, 40, 0.5), 0 0 24px oklch(0.45 0.22 265 / 0.3), 0 0 0 1px ${project.accentHex}88`;
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLDivElement).style.transform = "";
+                    (e.currentTarget as HTMLDivElement).style.borderColor = "oklch(0.35 0.12 265 / 0.45)";
+                    (e.currentTarget as HTMLDivElement).style.boxShadow = "0 8px 24px rgba(5, 10, 25, 0.4)";
+                  }}
+                >
+                  {/* Preview area with balanced height and refined framing */}
+                  <div
+                    style={{
+                      height: "225px",
+                      padding: project.device === "pc" ? "16px 14px 10px" : "10px 14px 8px",
+                      background: `radial-gradient(circle at 50% 35%, ${project.accentHex}25 0%, transparent 68%), radial-gradient(circle at 50% 85%, oklch(0.25 0.1 265 / 0.35) 0%, transparent 60%)`,
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                    }}
+                  >
+                    {project.device === "pc" ? (
+                      <div style={{ width: "100%", maxWidth: "235px" }}>
+                        <PCFrame src={project.image} alt={project.title} compact />
+                      </div>
+                    ) : (
+                      <div style={{ width: "92px" }}>
+                        <AndroidFrame src={project.image} alt={project.title} compact />
+                      </div>
+                    )}
+                  </div>
+
+                  {/* Card info */}
+                  <div className="flex flex-1 flex-col justify-between p-5">
+                    <div>
+                      <div className="mb-2.5 flex items-center justify-between">
+                        <span
+                          style={{
+                            background: `${project.accentHex}25`,
+                            border: `1px solid ${project.accentHex}60`,
+                            color: project.accentHex,
+                          }}
+                          className="inline-flex items-center gap-1.5 rounded-full px-2.5 py-0.5 text-[10px] font-bold uppercase tracking-wider"
+                        >
+                          {project.device === "pc" ? <Monitor className="h-3 w-3" /> : <Smartphone className="h-3 w-3" />}
+                          {project.device === "pc" ? "Web App" : "Android App"}
+                        </span>
+                        <ArrowRight className="h-3.5 w-3.5 text-royal-light/60 transition-transform group-hover:translate-x-1 group-hover:text-white" />
+                      </div>
+
+                      <h3 className="text-base font-bold text-white sm:text-lg">
+                        {project.title}
+                      </h3>
+                      <p className="mt-1 text-xs text-white/70">
+                        {project.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="mt-4 flex items-center justify-between border-t border-royal/25 pt-3">
+                      <span className="text-[11px] font-medium text-white/50">
+                        Tap to view details
+                      </span>
+                      <span
+                        style={{ color: project.accentHex }}
+                        className="text-xs font-bold transition-transform group-hover:translate-x-0.5"
+                      >
+                        Explore →
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* Scroll hint dots & mobile indicator */}
+          <div className="mt-4 flex items-center justify-center gap-1.5">
+            {projects.map((p, i) => (
+              <button
+                key={p.id}
+                onClick={() => {
+                  const cards = scrollRef.current?.querySelectorAll("button");
+                  cards?.[i]?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+                }}
+                className="h-2 w-2 rounded-full bg-navy/30 transition-all hover:bg-royal hover:w-5"
+                aria-label={`Go to ${p.title}`}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
   );
 }
 

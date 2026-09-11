@@ -77,19 +77,52 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "C-Entrepreneurs — Solutions That Work. Relationships That Last." },
-      { name: "description", content: "Entrepreneurs Service Provider. We build, revive, and execute — turning ideas into real, functioning companies." },
-      { property: "og:title", content: "C-Entrepreneurs — Solutions That Work" },
-      { property: "og:description", content: "We build, revive, and execute — turning ideas into real, functioning companies." },
+      { title: "C-Entrepreneurs | Software Development & Marketing Agency" },
+      {
+        name: "description",
+        content:
+          "C-Entrepreneurs is a modern software development and marketing agency. We build custom web apps, Android applications, POS systems, and empower emerging talent through real startup internships.",
+      },
+      {
+        name: "keywords",
+        content:
+          "C-Entrepreneurs, C Entrepreneurs, software development agency, web app development, Android app development, POS billing software, startup accelerator, tech internship, marketing agency",
+      },
+      { name: "author", content: "C-Entrepreneurs" },
+      {
+        name: "robots",
+        content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
+      },
+      { property: "og:site_name", content: "C-Entrepreneurs" },
+      { property: "og:title", content: "C-Entrepreneurs | Build. Learn. Grow." },
+      {
+        property: "og:description",
+        content:
+          "Custom Web & Android app development, POS solutions, and high-impact startup internships. We turn bold ideas into real, functioning companies.",
+      },
       { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://c-entrepreneurs.com/" },
+      { property: "og:image", content: "https://c-entrepreneurs.com/clogo.png" },
+      { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "C-Entrepreneurs | Build. Learn. Grow." },
+      {
+        name: "twitter:description",
+        content:
+          "Custom Web & Android app development, POS solutions, and high-impact startup internships.",
+      },
+      { name: "twitter:image", content: "https://c-entrepreneurs.com/clogo.png" },
     ],
     links: [
+      { rel: "canonical", href: "https://c-entrepreneurs.com/" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/clogo.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&family=Great+Vibes&display=swap" },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Playfair+Display:wght@700;900&family=Great+Vibes&display=swap",
+      },
     ],
   }),
 
@@ -100,10 +133,66 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 });
 
 function RootShell({ children }: { children: ReactNode }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://c-entrepreneurs.com/#organization",
+        name: "C-Entrepreneurs",
+        url: "https://c-entrepreneurs.com",
+        logo: "https://c-entrepreneurs.com/clogo.png",
+        image: "https://c-entrepreneurs.com/clogo.png",
+        description:
+          "Entrepreneurs Service Provider & Software Development Agency. We build, revive, and execute real companies.",
+        email: "hello@c-entrepreneurs.com",
+        knowsAbout: [
+          "Web Development",
+          "Mobile App Development",
+          "Business Development",
+          "Marketing",
+          "Startup Incubation",
+          "Student Internships",
+        ],
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://c-entrepreneurs.com/#website",
+        url: "https://c-entrepreneurs.com",
+        name: "C-Entrepreneurs",
+        description: "Build. Learn. Grow. Solutions that work, relationships that last.",
+        publisher: {
+          "@id": "https://c-entrepreneurs.com/#organization",
+        },
+      },
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://c-entrepreneurs.com/#service",
+        name: "C-Entrepreneurs Software & Startup Services",
+        url: "https://c-entrepreneurs.com",
+        parentOrganization: {
+          "@id": "https://c-entrepreneurs.com/#organization",
+        },
+        priceRange: "$$",
+        areaServed: "Global",
+        serviceType: [
+          "Web Application Development",
+          "Android Application Development",
+          "POS and Billing Systems",
+          "Startup Incubation & Internships",
+        ],
+      },
+    ],
+  };
+
   return (
     <html lang="en">
       <head>
         <HeadContent />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
       </head>
       <body>
         {children}
