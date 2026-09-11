@@ -632,7 +632,7 @@ function Index() {
   );
 }
 
-// ─── PC Monitor Frame (Silver Aluminum Edition) ──────────────────────────────
+// ─── PC Monitor Frame (Premium Matte Black Edition) ─────────────────────────
 function PCFrame({
   src,
   alt,
@@ -650,16 +650,16 @@ function PCFrame({
         margin: "0 auto",
       }}
     >
-      {/* PC Monitor Screen Bezel - Premium Silver Aluminum */}
+      {/* PC Monitor Screen Bezel - Sleek Obsidian Black */}
       <div
         style={{
-          background: "#0f1117",
-          border: compact ? "3.5px solid #cbd5e1" : "7px solid #cbd5e1",
+          background: "#090a0f",
+          border: compact ? "3.5px solid #1c1f26" : "7px solid #1c1f26",
           borderBottom: "none",
           borderRadius: compact ? "6px 6px 0 0" : "12px 12px 0 0",
           overflow: "hidden",
           lineHeight: 0,
-          boxShadow: "0 8px 24px rgba(0,0,0,0.35)",
+          boxShadow: "0 10px 30px rgba(0,0,0,0.5)",
         }}
       >
         <img
@@ -675,39 +675,39 @@ function PCFrame({
         />
       </div>
 
-      {/* Monitor bottom bezel / chin - Brushed Silver Aluminum */}
+      {/* Monitor bottom bezel / chin - Brushed Matte Black */}
       <div
         style={{
-          background: "linear-gradient(180deg, #f1f5f9 0%, #e2e8f0 45%, #cbd5e1 100%)",
+          background: "linear-gradient(180deg, #272a34 0%, #1c1f26 45%, #111317 100%)",
           borderRadius: compact ? "0 0 5px 5px" : "0 0 8px 8px",
           height: compact ? "10px" : "16px",
-          border: compact ? "1px solid #94a3b8" : "2px solid #94a3b8",
+          border: compact ? "1px solid #111317" : "2px solid #111317",
           borderTop: "none",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          boxShadow: "0 2px 4px rgba(0,0,0,0.15)",
+          boxShadow: "0 3px 6px rgba(0,0,0,0.3)",
         }}
       >
         <div
           style={{
             width: compact ? "14px" : "24px",
             height: "2px",
-            background: "#64748b",
+            background: "#4b5563",
             borderRadius: "1px",
-            opacity: 0.7,
+            opacity: 0.6,
           }}
         />
       </div>
 
-      {/* Monitor stand neck and base plate - Anodized Silver */}
+      {/* Monitor stand neck and base plate - Matte Space Black */}
       <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
         <div
           style={{
             width: compact ? "26px" : "44px",
             height: compact ? "9px" : "16px",
-            background: "linear-gradient(90deg, #94a3b8 0%, #e2e8f0 35%, #f1f5f9 50%, #cbd5e1 75%, #94a3b8 100%)",
-            border: "1px solid #94a3b8",
+            background: "linear-gradient(90deg, #111317 0%, #272a34 35%, #374151 50%, #272a34 75%, #111317 100%)",
+            border: "1px solid #111317",
             borderTop: "none",
           }}
         />
@@ -715,11 +715,11 @@ function PCFrame({
           style={{
             width: compact ? "80px" : "140px",
             height: compact ? "4px" : "7px",
-            background: "linear-gradient(180deg, #f1f5f9 0%, #cbd5e1 60%, #94a3b8 100%)",
+            background: "linear-gradient(180deg, #272a34 0%, #1c1f26 60%, #0f1115 100%)",
             borderRadius: "2px 2px 0 0",
-            border: "1px solid #94a3b8",
+            border: "1px solid #111317",
             borderTop: "none",
-            boxShadow: "0 3px 8px rgba(0,0,0,0.3)",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.5)",
           }}
         />
       </div>
