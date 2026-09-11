@@ -108,9 +108,9 @@ body {
   0%, 100% { transform: translateX(0) rotate(-8deg); }
   50% { transform: translateX(25px) rotate(8deg); }
 }
-.icon-float-a { animation: float-around 14s ease-in-out infinite; }
-.icon-float-b { animation: drift 18s linear infinite; }
-.icon-float-c { animation: sway 10s ease-in-out infinite; }
+.icon-float-a { animation: float-around 14s ease-in-out infinite; will-change: transform; transform: translateZ(0); }
+.icon-float-b { animation: drift 18s linear infinite; will-change: transform; transform: translateZ(0); }
+.icon-float-c { animation: sway 10s ease-in-out infinite; will-change: transform; transform: translateZ(0); }
 
 /* Intro splash animation */
 @keyframes intro-spin {

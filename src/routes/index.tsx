@@ -25,6 +25,7 @@ import {
   ChevronLeft,
   ChevronRight,
   X,
+  CheckCircle2,
 } from "lucide-react";
 
 
@@ -665,6 +666,8 @@ function PCFrame({
         <img
           src={src}
           alt={alt}
+          loading="lazy"
+          decoding="async"
           style={{
             width: "100%",
             height: "auto",
@@ -781,6 +784,8 @@ function AndroidFrame({
         <img
           src={src}
           alt={alt}
+          loading="lazy"
+          decoding="async"
           style={{
             width: "100%",
             height: "auto",
@@ -1006,6 +1011,34 @@ function ProjectShowcase() {
   const scrollLeftPos = useRef(0);
   const hasMoved = useRef(false);
   const [isPaused, setIsPaused] = useState(false);
+  const sectionRef = useRef<HTMLElement>(null);
+  const [isInView, setIsInView] = useState(false);
+  const cachedWidthRef = useRef(0);
+
+  // Measure singleSetWidth once and update on window resize (avoids layout thrashing in RAF)
+  useEffect(() => {
+    const updateWidth = () => {
+      if (scrollRef.current) {
+        cachedWidthRef.current = scrollRef.current.scrollWidth / 3;
+      }
+    };
+    updateWidth();
+    window.addEventListener("resize", updateWidth, { passive: true });
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
+
+  // IntersectionObserver: Pause RAF animation completely when projects section is offscreen
+  useEffect(() => {
+    if (!sectionRef.current) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        setIsInView(entry.isIntersecting);
+      },
+      { rootMargin: "150px" }
+    );
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, []);
 
   // Position at the middle set on mount
   useEffect(() => {
@@ -1013,24 +1046,28 @@ function ProjectShowcase() {
     if (!track) return;
     const timer = setTimeout(() => {
       if (track) {
-        track.scrollLeft = track.scrollWidth / 3;
+        const width = cachedWidthRef.current || track.scrollWidth / 3;
+        track.scrollLeft = width;
+        cachedWidthRef.current = width;
       }
     }, 60);
     return () => clearTimeout(timer);
   }, []);
 
-  // Continuous gentle infinite auto-glide (pauses on hover or while dragging)
+  // Continuous gentle infinite auto-glide (runs ONLY when in view, stops CPU usage offscreen)
   useEffect(() => {
+    if (!isInView || isPaused) return;
+
     let animId: number;
     let lastTime = performance.now();
 
     const loop = (time: number) => {
-      const delta = Math.min(time - lastTime, 40);
+      const delta = Math.min(time - lastTime, 32);
       lastTime = time;
 
-      if (!isPaused && !isDown.current && scrollRef.current) {
+      if (!isDown.current && scrollRef.current) {
         const track = scrollRef.current;
-        const singleSetWidth = track.scrollWidth / 3;
+        const singleSetWidth = cachedWidthRef.current;
 
         track.scrollLeft += 0.04 * delta;
 
@@ -1043,13 +1080,13 @@ function ProjectShowcase() {
 
     animId = requestAnimationFrame(loop);
     return () => cancelAnimationFrame(animId);
-  }, [isPaused]);
+  }, [isInView, isPaused]);
 
   // Seamless infinite loop when manually scrolling
   const onScroll = () => {
     if (!scrollRef.current) return;
     const track = scrollRef.current;
-    const singleSetWidth = track.scrollWidth / 3;
+    const singleSetWidth = cachedWidthRef.current;
     if (singleSetWidth <= 0) return;
 
     if (track.scrollLeft >= singleSetWidth * 2) {
@@ -1089,7 +1126,7 @@ function ProjectShowcase() {
     const track = scrollRef.current;
     track.scrollLeft = scrollLeftPos.current - walk;
 
-    const singleSetWidth = track.scrollWidth / 3;
+    const singleSetWidth = cachedWidthRef.current;
     if (singleSetWidth > 0) {
       if (track.scrollLeft >= singleSetWidth * 2) {
         track.scrollLeft -= singleSetWidth;
@@ -1117,7 +1154,7 @@ function ProjectShowcase() {
     <>
       {selectedProject && <ProjectDetail project={selectedProject} onClose={handleClose} />}
 
-      <section id="projects" className="bg-background pt-12 pb-16 sm:pt-16 sm:pb-24">
+      <section ref={sectionRef} id="projects" className="bg-background pt-12 pb-16 sm:pt-16 sm:pb-24">
         <div className="mx-auto max-w-7xl px-4 sm:px-6">
           {/* Section header badge */}
           <div className="mb-6 flex items-center justify-center sm:mb-8">
@@ -1328,6 +1365,8 @@ function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", product: "" });
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const [showPopup, setShowPopup] = useState(false);
+  const [submittedName, setSubmittedName] = useState("");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -1339,6 +1378,7 @@ function ContactSection() {
     setStatus("sending");
     setErrorMsg("");
 
+    const clientName = form.name;
     const mailtoFallback = `mailto:centrepreneursb2c@gmail.com?subject=${encodeURIComponent(
       `New Project Inquiry from ${form.name} — C-Entrepreneurs`
     )}&body=${encodeURIComponent(
@@ -1365,23 +1405,107 @@ function ContactSection() {
       if (!res.ok || (data && data.success === "false")) {
         // Transparently trigger user email client if form backend encounters any issue
         window.location.href = mailtoFallback;
-        setStatus("sent");
-        setForm({ name: "", email: "", product: "" });
-        return;
       }
 
       setStatus("sent");
+      setSubmittedName(clientName);
+      setShowPopup(true);
       setForm({ name: "", email: "", product: "" });
     } catch {
       // If adblocker or network issues block FormSubmit, fall back to native mailto directly
       window.location.href = mailtoFallback;
       setStatus("sent");
+      setSubmittedName(clientName);
+      setShowPopup(true);
       setForm({ name: "", email: "", product: "" });
     }
   };
 
   return (
-    <section id="contact" className="bg-background py-16 sm:py-20">
+    <>
+      {showPopup && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          className="fixed inset-0 z-[100] flex items-center justify-center bg-navy/65 p-4 backdrop-blur-md animate-in fade-in duration-200"
+          onClick={() => setShowPopup(false)}
+        >
+          <div
+            className="relative w-full max-w-md overflow-hidden rounded-3xl border border-navy/20 bg-card p-6 text-center shadow-2xl shadow-navy/30 sm:p-8 animate-in zoom-in-95 duration-200"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Ambient glow decoration */}
+            <div
+              aria-hidden
+              className="pointer-events-none absolute -top-20 left-1/2 -translate-x-1/2 h-40 w-72 rounded-full bg-royal/20 blur-3xl"
+            />
+
+            {/* Close button */}
+            <button
+              onClick={() => setShowPopup(false)}
+              className="absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full text-muted-foreground transition hover:bg-navy/10 hover:text-navy cursor-pointer"
+              aria-label="Close modal"
+            >
+              <X className="h-4 w-4" />
+            </button>
+
+            {/* Success Icon */}
+            <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-royal/10 text-royal ring-8 ring-royal/5">
+              <CheckCircle2 className="h-9 w-9 text-royal animate-in zoom-in-50 duration-300" strokeWidth={2.2} />
+            </div>
+
+            <p className="text-[10px] font-bold uppercase tracking-[0.25em] text-royal">
+              C-Entrepreneurs · Connected
+            </p>
+
+            <h3 className="mt-1.5 font-display text-2xl font-black text-navy sm:text-3xl">
+              Message Sent!
+            </h3>
+
+            <p className="mt-2.5 text-sm leading-relaxed text-foreground/80">
+              Thank you, <span className="font-semibold text-navy">{submittedName || "there"}</span>! Your project details have been successfully received. Our team will review your inquiry and connect with you shortly.
+            </p>
+
+            {/* Tagline Ribbon */}
+            <div className="my-5 inline-flex items-center gap-2 rounded-full bg-navy/5 px-4 py-1.5 text-[10px] font-bold tracking-[0.2em] text-navy">
+              BUILT <span className="text-royal">|</span> REVIVE <span className="text-royal">|</span> EXECUTE
+            </div>
+
+            {/* Primary Action Button */}
+            <button
+              onClick={() => setShowPopup(false)}
+              className="w-full rounded-full bg-navy px-6 py-3 text-sm font-bold text-primary-foreground shadow-lg shadow-navy/20 transition hover:bg-royal hover:shadow-royal/30 cursor-pointer"
+            >
+              Got it, Thank You!
+            </button>
+
+            {/* Secondary Quick Actions */}
+            <div className="mt-5 border-t border-border/80 pt-4 text-xs text-muted-foreground">
+              <p className="mb-2 text-[11px] font-medium text-navy/70">Need an immediate response?</p>
+              <div className="flex gap-2">
+                <a
+                  href="https://wa.me/919025360572?text=Hi%20C-Entrepreneurs%2C%20I%20just%20submitted%20a%20project%20inquiry."
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full border border-emerald-600/30 bg-emerald-50/80 px-3 py-2 text-xs font-bold text-emerald-700 transition hover:bg-emerald-600 hover:text-white cursor-pointer"
+                >
+                  <MessageCircle className="h-3.5 w-3.5" />
+                  <span>WhatsApp</span>
+                </a>
+                <a
+                  href="tel:+919025360572"
+                  className="flex-1 inline-flex items-center justify-center gap-1.5 rounded-full border border-navy/20 bg-background px-3 py-2 text-xs font-bold text-navy transition hover:bg-navy hover:text-white cursor-pointer"
+                >
+                  <Phone className="h-3.5 w-3.5" />
+                  <span>Call Direct</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+
+      <section id="contact" className="bg-background py-16 sm:py-20">
       <div className="mx-auto max-w-4xl px-4 sm:px-6">
         <div className="mb-8 text-center sm:mb-10">
           <p className="text-xs font-bold uppercase tracking-[0.3em] text-royal">Contact</p>
@@ -1488,7 +1612,7 @@ function ContactSection() {
           </div>
         </form>
       </div>
-    </section>
+      </section>
+    </>
   );
 }
-
