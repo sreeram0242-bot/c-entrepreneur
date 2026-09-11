@@ -78,13 +78,12 @@
 }
 
 html {
-  scroll-behavior: smooth;
+  scroll-behavior: smooth !important;
   scroll-padding-top: 80px;
 }
 
-html,
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 #lovable-badge {

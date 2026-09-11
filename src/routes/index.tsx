@@ -143,84 +143,84 @@ const projects: {
   image: string;
   accentHex: string; // hex for inline style compatibility
 }[] = [
-  {
-    id: "gymflow",
-    title: "GymFlow",
-    subtitle: "Gym Management Platform",
-    description:
-      "A full-featured gym management system with NFC-powered check-ins, real-time member tracking, payment dues alerts, biometric attendance, and live financial analytics — built for gym owners.",
-    tags: ["Web App", "NFC Check-in", "Real-time", "Analytics"],
-    device: "pc",
-    image: "/projects/Screenshot 2026-09-11 120911.png",
-    accentHex: "#3b6fd4",
-  },
-  {
-    id: "clouddine",
-    title: "CloudDine",
-    subtitle: "Restaurant Order Management",
-    description:
-      "A smart restaurant dashboard managing live orders, table assignments, waiter calls, revenue analytics, and kitchen workflow — all in a single elegant interface.",
-    tags: ["Restaurant Tech", "Live Orders", "QR Menu", "Dashboard"],
-    device: "pc",
-    image: "/projects/Screenshot 2026-09-11 121730.png",
-    accentHex: "#c07a2a",
-  },
-  {
-    id: "engineers-kitchen-desktop",
-    title: "Engineers Kitchen",
-    subtitle: "Café POS & Billing — Web",
-    description:
-      "A lightweight desktop POS for a café featuring category-based menu, cart management, bill generation with customer details, and seamless order tracking.",
-    tags: ["POS", "Web Billing", "Café", "Offline-Ready"],
-    device: "pc",
-    image: "/projects/Screenshot 2026-09-11 121900.png",
-    accentHex: "#4a8c4a",
-  },
-  {
-    id: "engineers-kitchen-mobile",
-    title: "Engineers Kitchen",
-    subtitle: "Café POS & Billing — Mobile",
-    description:
-      "The mobile version of Engineers Kitchen POS — optimized for phones with a thumb-friendly cart, smart search, category filter tabs, and one-tap bill save.",
-    tags: ["POS", "Mobile", "Café", "Android"],
-    device: "android",
-    image: "/projects/Screenshot 2026-09-11 124951.png",
-    accentHex: "#4a8c4a",
-  },
-  {
-    id: "cafe-bistro",
-    title: "Cafe Bistro",
-    subtitle: "Offline Café Billing POS",
-    description:
-      "A fully offline-capable café billing system supporting Dine-In & Parcel, Veg/Non-Veg filtering, category menus, bill printing, UPI/Cash/Card payments, and multi-item cart.",
-    tags: ["Offline POS", "Web Billing", "Print", "Multi-Payment"],
-    device: "pc",
-    image: "/projects/Screenshot 2026-09-11 124446.png",
-    accentHex: "#1e7a5a",
-  },
-  {
-    id: "royal-car-wash",
-    title: "Royal Car Wash",
-    subtitle: "Automotive Detailing Platform",
-    description:
-      "Karur's premier automotive detailing centre — with snow foam wash, 9H ceramic nano-coating, real-time vehicle tracking, slot booking, and WhatsApp service updates.",
-    tags: ["Mobile Web", "Booking", "Automotive", "Tracking"],
-    device: "android",
-    image: "/projects/Screenshot 2026-09-11 122225.png",
-    accentHex: "#c0392b",
-  },
-  {
-    id: "happy-events",
-    title: "Happy Events",
-    subtitle: "Event Planning & Management",
-    description:
-      "From elegant weddings to grand corporate events — Happy Events is a mobile-first event planning platform showcasing premium packages, service galleries, and a seamless inquiry flow.",
-    tags: ["Mobile Web", "Events", "Wedding", "Corporate"],
-    device: "android",
-    image: "/projects/Screenshot 2026-09-11 124739.png",
-    accentHex: "#b8860b",
-  },
-];
+    {
+      id: "gymflow",
+      title: "GymFlow",
+      subtitle: "Gym Management Platform",
+      description:
+        "A full-featured gym management system with NFC-powered check-ins, real-time member tracking, payment dues alerts, biometric attendance, and live financial analytics — built for gym owners.",
+      tags: ["Web App", "NFC Check-in", "Real-time", "Analytics"],
+      device: "pc",
+      image: "/projects/Screenshot 2026-09-11 120911.png",
+      accentHex: "#3b6fd4",
+    },
+    {
+      id: "clouddine",
+      title: "CloudDine",
+      subtitle: "Restaurant Order Management",
+      description:
+        "A smart restaurant dashboard managing live orders, table assignments, waiter calls, revenue analytics, and kitchen workflow — all in a single elegant interface.",
+      tags: ["Restaurant Tech", "Live Orders", "QR Menu", "Dashboard"],
+      device: "pc",
+      image: "/projects/Screenshot 2026-09-11 121730.png",
+      accentHex: "#c07a2a",
+    },
+    {
+      id: "engineers-kitchen-desktop",
+      title: "Engineers Kitchen",
+      subtitle: "Café POS & Billing — Web",
+      description:
+        "A lightweight desktop POS for a café featuring category-based menu, cart management, bill generation with customer details, and seamless order tracking.",
+      tags: ["POS", "Web Billing", "Café", "Offline-Ready"],
+      device: "pc",
+      image: "/projects/Screenshot 2026-09-11 121900.png",
+      accentHex: "#4a8c4a",
+    },
+    {
+      id: "engineers-kitchen-mobile",
+      title: "Engineers Kitchen",
+      subtitle: "Café POS & Billing — Mobile",
+      description:
+        "The mobile version of Engineers Kitchen POS — optimized for phones with a thumb-friendly cart, smart search, category filter tabs, and one-tap bill save.",
+      tags: ["POS", "Mobile", "Café", "Android"],
+      device: "android",
+      image: "/projects/Screenshot 2026-09-11 124951.png",
+      accentHex: "#4a8c4a",
+    },
+    {
+      id: "cafe-bistro",
+      title: "Cafe Bistro",
+      subtitle: "Offline Café Billing POS",
+      description:
+        "A fully offline-capable café billing system supporting Dine-In & Parcel, Veg/Non-Veg filtering, category menus, bill printing, UPI/Cash/Card payments, and multi-item cart.",
+      tags: ["Offline POS", "Web Billing", "Print", "Multi-Payment"],
+      device: "pc",
+      image: "/projects/Screenshot 2026-09-11 124446.png",
+      accentHex: "#1e7a5a",
+    },
+    {
+      id: "royal-car-wash",
+      title: "Royal Car Wash",
+      subtitle: "Automotive Detailing Platform",
+      description:
+        "Karur's premier automotive detailing centre — with snow foam wash, 9H ceramic nano-coating, real-time vehicle tracking, slot booking, and WhatsApp service updates.",
+      tags: ["Mobile Web", "Booking", "Automotive", "Tracking"],
+      device: "android",
+      image: "/projects/Screenshot 2026-09-11 122225.png",
+      accentHex: "#c0392b",
+    },
+    {
+      id: "happy-events",
+      title: "Happy Events",
+      subtitle: "Event Planning & Management",
+      description:
+        "From elegant weddings to grand corporate events — Happy Events is a mobile-first event planning platform showcasing premium packages, service galleries, and a seamless inquiry flow.",
+      tags: ["Mobile Web", "Events", "Wedding", "Corporate"],
+      device: "android",
+      image: "/projects/Screenshot 2026-09-11 124739.png",
+      accentHex: "#b8860b",
+    },
+  ];
 
 function IntroSplash() {
   const [gone, setGone] = useState(false);
@@ -296,6 +296,14 @@ function IntroSplash() {
 function Index() {
   const [active, setActive] = useState<string>(roles[0].id);
 
+  const scrollToSection = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const el = document.getElementById(targetId);
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground">
       <IntroSplash />
@@ -303,7 +311,7 @@ function Index() {
       {/* NAV */}
       <header className="sticky top-0 z-50 border-b border-border/60 bg-background/85 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
-          <a href="#" className="flex min-w-0 items-center gap-2">
+          <a href="#" onClick={(e) => { e.preventDefault(); window.scrollTo({ top: 0, behavior: "smooth" }); }} className="flex min-w-0 items-center gap-2 cursor-pointer">
             <img
               src="/clogo.png"
               alt="C-Entrepreneurs Logo"
@@ -315,15 +323,16 @@ function Index() {
             </div>
           </a>
           <nav className="hidden items-center gap-6 text-sm font-medium text-navy lg:flex lg:gap-8">
-            <a href="#concept" className="hover:text-royal transition-colors">The Concept</a>
-            <a href="#internship" className="hover:text-royal transition-colors">Internship</a>
-            <a href="#projects" className="hover:text-royal transition-colors">Projects</a>
-            <a href="#why" className="hover:text-royal transition-colors">Why Us</a>
-            <a href="#apply" className="hover:text-royal transition-colors">Apply</a>
+            <a href="#concept" onClick={(e) => scrollToSection(e, "concept")} className="hover:text-royal transition-colors cursor-pointer">The Concept</a>
+            <a href="#internship" onClick={(e) => scrollToSection(e, "internship")} className="hover:text-royal transition-colors cursor-pointer">Internship</a>
+            <a href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="hover:text-royal transition-colors cursor-pointer">Projects</a>
+            <a href="#why" onClick={(e) => scrollToSection(e, "why")} className="hover:text-royal transition-colors cursor-pointer">Why Us</a>
+            <a href="#apply" onClick={(e) => scrollToSection(e, "apply")} className="hover:text-royal transition-colors cursor-pointer">Apply</a>
           </nav>
           <a
             href="#apply"
-            className="shrink-0 rounded-full bg-royal px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg shadow-royal/30 transition hover:bg-navy sm:px-5 sm:py-2.5 sm:text-sm"
+            onClick={(e) => scrollToSection(e, "apply")}
+            className="shrink-0 rounded-full bg-royal px-4 py-2 text-xs font-semibold text-primary-foreground shadow-lg shadow-royal/30 transition hover:bg-navy sm:px-5 sm:py-2.5 sm:text-sm cursor-pointer"
           >
             Partner
           </a>
@@ -379,14 +388,16 @@ function Index() {
             <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
               <a
                 href="#internship"
-                className="group inline-flex items-center gap-2 rounded-sm bg-royal px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-royal/30 transition hover:bg-navy sm:px-7 sm:py-3.5"
+                onClick={(e) => scrollToSection(e, "internship")}
+                className="group inline-flex items-center gap-2 rounded-sm bg-royal px-6 py-3 text-sm font-semibold text-primary-foreground shadow-lg shadow-royal/30 transition hover:bg-navy sm:px-7 sm:py-3.5 cursor-pointer"
               >
                 Explore Roles
                 <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#apply"
-                className="inline-flex items-center gap-2 rounded-sm border-2 border-navy px-6 py-3 text-sm font-semibold text-navy transition hover:bg-navy hover:text-primary-foreground sm:px-7 sm:py-3.5"
+                onClick={(e) => scrollToSection(e, "apply")}
+                className="inline-flex items-center gap-2 rounded-sm border-2 border-navy px-6 py-3 text-sm font-semibold text-navy transition hover:bg-navy hover:text-primary-foreground sm:px-7 sm:py-3.5 cursor-pointer"
               >
                 Apply Now
               </a>
@@ -446,24 +457,21 @@ function Index() {
                 <button
                   key={r.id}
                   onClick={() => setActive(isActive ? "" : r.id)}
-                  className={`group relative overflow-hidden rounded-xl border-2 p-4 text-left transition-[background-color,border-color,box-shadow,transform,grid-column] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:p-6 ${
-                    isActive
+                  className={`group relative overflow-hidden rounded-xl border-2 p-4 text-left transition-[background-color,border-color,box-shadow,transform,grid-column] duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] sm:p-6 ${isActive
                       ? "col-span-2 border-royal bg-navy text-primary-foreground shadow-2xl shadow-navy/30 sm:col-span-4"
                       : "border-border bg-card text-navy hover:border-royal/40 hover:-translate-y-0.5"
-                  }`}
+                    }`}
                 >
                   <div className="flex items-start justify-between gap-2 sm:gap-3">
                     <div
-                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors sm:h-14 sm:w-14 ${
-                        isActive ? "bg-royal text-primary-foreground" : "bg-navy text-primary-foreground"
-                      }`}
+                      className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full transition-colors sm:h-14 sm:w-14 ${isActive ? "bg-royal text-primary-foreground" : "bg-navy text-primary-foreground"
+                        }`}
                     >
                       <Icon className="h-5 w-5 sm:h-6 sm:w-6" />
                     </div>
                     <span
-                      className={`font-display text-3xl font-black transition-colors sm:text-4xl ${
-                        isActive ? "text-royal-light" : "text-navy/15"
-                      }`}
+                      className={`font-display text-3xl font-black transition-colors sm:text-4xl ${isActive ? "text-royal-light" : "text-navy/15"
+                        }`}
                     >
                       {r.num}
                     </span>
@@ -475,9 +483,8 @@ function Index() {
 
                   {/* Expanding info panel */}
                   <div
-                    className={`grid transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${
-                      isActive ? "mt-5 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
-                    }`}
+                    className={`grid transition-all duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] ${isActive ? "mt-5 grid-rows-[1fr] opacity-100" : "mt-0 grid-rows-[0fr] opacity-0"
+                      }`}
                   >
                     <div className="overflow-hidden">
                       <div className="h-px w-16 bg-royal-light" />
@@ -974,6 +981,38 @@ function ProjectShowcase() {
     setSelected(id);
   };
 
+  const isDown = useRef(false);
+  const startX = useRef(0);
+  const scrollLeftPos = useRef(0);
+  const hasMoved = useRef(false);
+
+  const onMouseDown = (e: React.MouseEvent) => {
+    if (!scrollRef.current) return;
+    isDown.current = true;
+    hasMoved.current = false;
+    startX.current = e.pageX - scrollRef.current.offsetLeft;
+    scrollLeftPos.current = scrollRef.current.scrollLeft;
+  };
+
+  const onMouseLeave = () => {
+    isDown.current = false;
+  };
+
+  const onMouseUp = () => {
+    isDown.current = false;
+  };
+
+  const onMouseMove = (e: React.MouseEvent) => {
+    if (!isDown.current || !scrollRef.current) return;
+    e.preventDefault();
+    const x = e.pageX - scrollRef.current.offsetLeft;
+    const walk = (x - startX.current) * 1.5;
+    if (Math.abs(walk) > 6) {
+      hasMoved.current = true;
+    }
+    scrollRef.current.scrollLeft = scrollLeftPos.current - walk;
+  };
+
   const scrollLeft = () => {
     if (scrollRef.current) {
       scrollRef.current.scrollBy({ left: -320, behavior: "smooth" });
@@ -1007,7 +1046,7 @@ function ProjectShowcase() {
                 Featured Client Work
               </h2>
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                Real software & apps built and launched by our team — touch or click any project for details.
+                Real software & apps built and launched by our team — swipe or click any project for details.
               </p>
             </div>
 
@@ -1030,9 +1069,13 @@ function ProjectShowcase() {
             </div>
           </div>
 
-          {/* Horizontal scroll track */}
+          {/* Horizontal scroll track with smooth momentum & drag support */}
           <div
             ref={scrollRef}
+            onMouseDown={onMouseDown}
+            onMouseLeave={onMouseLeave}
+            onMouseUp={onMouseUp}
+            onMouseMove={onMouseMove}
             style={{
               display: "flex",
               gap: "20px",
@@ -1041,17 +1084,22 @@ function ProjectShowcase() {
               paddingTop: "8px",
               paddingLeft: "4px",
               paddingRight: "4px",
-              scrollSnapType: "x mandatory",
+              scrollBehavior: "smooth",
               WebkitOverflowScrolling: "touch",
               scrollbarWidth: "none",
+              cursor: "grab",
             }}
-            className="projects-scroll"
+            className="projects-scroll select-none active:cursor-grabbing"
           >
             {projects.map((project) => (
               <button
                 key={project.id}
                 id={`project-card-${project.id}`}
-                onClick={() => openProject(project.id)}
+                onClick={() => {
+                  if (!hasMoved.current) {
+                    openProject(project.id);
+                  }
+                }}
                 style={{
                   flexShrink: 0,
                   width: "clamp(260px, 80vw, 320px)",
