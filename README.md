@@ -68,7 +68,7 @@ Have an idea or looking to scale your business? Let's build together.
 
 - 🌐 **Website:** [https://c-entrepreneur.vercel.app](https://c-entrepreneur.vercel.app/)
 - 📞 **Phone:** [+91 90253 60572](tel:+919025360572)
-- ✉️ **Inquiries:** [centrepreneursb2c@gmail.com](mailto:hello@c-entrepreneurs.com)
+- ✉️ **Inquiries:** [centrepreneursb2c@gmail.com](mailto:centrepreneursb2c@gmail.com)
 
 ---
 

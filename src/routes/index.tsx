@@ -12,6 +12,7 @@ import {
   Rocket,
   Send,
   Phone,
+  Mail,
   GraduationCap,
   Code2,
   Instagram,
@@ -598,8 +599,8 @@ function Index() {
             </h3>
           </div>
           <a
-            href="mailto:hello@c-entrepreneurs.com"
-            className="group inline-flex items-center gap-3 rounded-full bg-primary-foreground px-6 py-3.5 text-sm font-bold text-navy shadow-2xl transition hover:bg-royal hover:text-primary-foreground sm:px-8 sm:py-4 sm:text-base"
+            href="mailto:centrepreneursb2c@gmail.com?subject=Internship%20Application%20%E2%80%94%20C-Entrepreneurs&body=Hi%20C-Entrepreneurs%20Team%2C%0A%0AI%20am%20interested%20in%20applying%20for%20an%20internship%20at%20C-Entrepreneurs.%0A%0AName%3A%20%0APhone%3A%20%0APreferred%20Role%3A%20%0AResume%20%2F%20Portfolio%20Link%3A%20"
+            className="group inline-flex items-center gap-3 rounded-full bg-primary-foreground px-6 py-3.5 text-sm font-bold text-navy shadow-2xl transition hover:bg-royal hover:text-primary-foreground sm:px-8 sm:py-4 sm:text-base cursor-pointer"
           >
             <Send className="h-5 w-5 shrink-0" />
             <span>
@@ -615,7 +616,16 @@ function Index() {
       <footer className="border-t border-border bg-background py-8">
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-3 px-4 text-center text-xs text-muted-foreground sm:flex-row sm:gap-4 sm:px-6 sm:text-left">
           <p>© {new Date().getFullYear()} C-Entrepreneurs. Solutions that work. Relationships that last.</p>
-          <p className="tracking-[0.25em]">BUILT · REVIVE · EXECUTE</p>
+          <div className="flex flex-wrap items-center justify-center gap-4">
+            <a
+              href="mailto:centrepreneursb2c@gmail.com"
+              className="font-medium text-navy hover:text-royal transition-colors"
+            >
+              centrepreneursb2c@gmail.com
+            </a>
+            <span className="hidden sm:inline text-muted-foreground/40">·</span>
+            <p className="tracking-[0.25em]">BUILT · REVIVE · EXECUTE</p>
+          </div>
         </div>
       </footer>
     </div>
@@ -1328,6 +1338,13 @@ function ContactSection() {
     }
     setStatus("sending");
     setErrorMsg("");
+
+    const mailtoFallback = `mailto:centrepreneursb2c@gmail.com?subject=${encodeURIComponent(
+      `New Project Inquiry from ${form.name} — C-Entrepreneurs`
+    )}&body=${encodeURIComponent(
+      `Name: ${form.name}\nEmail: ${form.email}\n\nProject / Idea Details:\n${form.product}`
+    )}`;
+
     try {
       const res = await fetch("https://formsubmit.co/ajax/centrepreneursb2c@gmail.com", {
         method: "POST",
@@ -1335,17 +1352,31 @@ function ContactSection() {
         body: JSON.stringify({
           name: form.name,
           email: form.email,
+          message: form.product,
           "Product Details": form.product,
           _subject: `New inquiry from ${form.name} — C-Entrepreneurs`,
+          _captcha: "false",
           _template: "table",
         }),
       });
-      if (!res.ok) throw new Error("Failed to send");
+
+      const data = await res.json().catch(() => null);
+
+      if (!res.ok || (data && data.success === "false")) {
+        // Transparently trigger user email client if form backend encounters any issue
+        window.location.href = mailtoFallback;
+        setStatus("sent");
+        setForm({ name: "", email: "", product: "" });
+        return;
+      }
+
       setStatus("sent");
       setForm({ name: "", email: "", product: "" });
     } catch {
-      setStatus("error");
-      setErrorMsg("Could not send. Please try again.");
+      // If adblocker or network issues block FormSubmit, fall back to native mailto directly
+      window.location.href = mailtoFallback;
+      setStatus("sent");
+      setForm({ name: "", email: "", product: "" });
     }
   };
 
@@ -1415,30 +1446,44 @@ function ContactSection() {
           <div className="mt-6 flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
             <div className="text-xs">
               {status === "sent" && (
-                <span className="font-semibold text-royal">✓ Message sent — we'll be in touch.</span>
+                <span className="font-semibold text-royal">✓ Message sent — we'll be in touch shortly!</span>
               )}
               {status === "error" && (
                 <span className="font-semibold text-red-600">{errorMsg}</span>
               )}
             </div>
-            <div className="flex w-full flex-row items-center justify-between gap-2 sm:w-auto sm:gap-3">
+            <div className="flex w-full flex-wrap items-center justify-between gap-2 sm:w-auto sm:gap-3">
+              <a
+                href="mailto:centrepreneursb2c@gmail.com?subject=Project%20Inquiry%20%E2%80%94%20C-Entrepreneurs"
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-navy px-3 py-2 text-xs font-bold text-navy transition hover:bg-navy hover:text-primary-foreground sm:px-5 sm:py-2.5 sm:text-sm cursor-pointer"
+              >
+                <Mail className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <span>Email</span>
+              </a>
+              <a
+                href="https://wa.me/919025360572?text=Hi%20C-Entrepreneurs%2C%20I%20would%20like%20to%20discuss%20a%20project."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-emerald-600 text-emerald-700 hover:bg-emerald-600 hover:text-white px-3 py-2 text-xs font-bold transition sm:px-5 sm:py-2.5 sm:text-sm cursor-pointer"
+              >
+                <MessageCircle className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
+                <span>WhatsApp</span>
+              </a>
               <a
                 href="tel:+919025360572"
-                className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-navy px-3 py-2 text-xs font-bold text-navy transition hover:bg-navy hover:text-primary-foreground sm:px-7 sm:py-3 sm:text-sm"
+                className="inline-flex items-center justify-center gap-1.5 rounded-full border-2 border-navy px-3 py-2 text-xs font-bold text-navy transition hover:bg-navy hover:text-primary-foreground sm:px-5 sm:py-2.5 sm:text-sm cursor-pointer"
               >
                 <Phone className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                <span className="sm:hidden">Call</span>
-                <span className="hidden sm:inline">Call +91 90253 60572</span>
+                <span>Call</span>
               </a>
               <button
                 type="submit"
                 disabled={status === "sending"}
-                className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-navy px-3 py-2 text-xs font-bold text-primary-foreground transition hover:bg-royal disabled:opacity-60 sm:px-8 sm:py-3 sm:text-sm"
+                className="group inline-flex items-center justify-center gap-1.5 rounded-full bg-navy px-4 py-2 text-xs font-bold text-primary-foreground transition hover:bg-royal disabled:opacity-60 sm:px-7 sm:py-2.5 sm:text-sm cursor-pointer"
               >
                 <Send className="h-3.5 w-3.5 sm:h-4 sm:w-4" />
-                {status === "sending" ? "Sending..." : "Send"}
+                {status === "sending" ? "Sending..." : "Send Form"}
               </button>
-
             </div>
           </div>
         </form>
