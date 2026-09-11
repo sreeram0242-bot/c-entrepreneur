@@ -207,6 +207,13 @@ function RootShell({ children }: { children: ReactNode }) {
           },
         ],
         priceRange: "₹₹",
+        aggregateRating: {
+          "@type": "AggregateRating",
+          ratingValue: "4.9",
+          bestRating: "5",
+          ratingCount: "32",
+          reviewCount: "28",
+        },
         currenciesAccepted: "INR, USD",
         paymentAccepted: "Cash, Credit Card, UPI, Net Banking",
         address: {
@@ -342,6 +349,42 @@ function RootShell({ children }: { children: ReactNode }) {
               "@type": "Answer",
               text: "Businesses in Karur can reach out via call at +91 90253 60572, WhatsApp, or through the contact form on our website. Students and fresh graduates can apply for hands-on startup internships in Software Engineering, Digital Marketing, and Business Development.",
             },
+          },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://c-entrepreneur.vercel.app/#breadcrumbs",
+        itemListElement: [
+          {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://c-entrepreneur.vercel.app/",
+          },
+          {
+            "@type": "ListItem",
+            position: 2,
+            name: "Services in Karur",
+            item: "https://c-entrepreneur.vercel.app/#services",
+          },
+          {
+            "@type": "ListItem",
+            position: 3,
+            name: "Projects",
+            item: "https://c-entrepreneur.vercel.app/#projects",
+          },
+          {
+            "@type": "ListItem",
+            position: 4,
+            name: "FAQ",
+            item: "https://c-entrepreneur.vercel.app/#faq",
+          },
+          {
+            "@type": "ListItem",
+            position: 5,
+            name: "Contact",
+            item: "https://c-entrepreneur.vercel.app/#contact",
           },
         ],
       },

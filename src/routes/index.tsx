@@ -346,6 +346,7 @@ function Index() {
             </div>
           </a>
           <nav className="hidden items-center gap-6 text-sm font-medium text-navy lg:flex lg:gap-8">
+            <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-royal transition-colors cursor-pointer">Services</a>
             <a href="#concept" onClick={(e) => scrollToSection(e, "concept")} className="hover:text-royal transition-colors cursor-pointer">The Concept</a>
             <a href="#internship" onClick={(e) => scrollToSection(e, "internship")} className="hover:text-royal transition-colors cursor-pointer">Internship</a>
             <a href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="hover:text-royal transition-colors cursor-pointer">Projects</a>
@@ -398,6 +399,7 @@ function Index() {
             </div>
             <p className="mb-2 text-xs font-semibold tracking-[0.25em] text-royal sm:mb-3 sm:text-sm">WELCOME TO</p>
             <h1 className="font-display whitespace-nowrap text-[clamp(1.4rem,8.5vw,5.25rem)] font-black leading-[0.95] text-navy">
+              <span className="sr-only">C-Entrepreneurs — Best Software Company & Digital Marketing Agency in Karur | </span>
               C-ENTRE<span className="text-royal">PRENEURS</span>
             </h1>
             <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-navy/70 sm:text-sm sm:tracking-[0.25em]">
@@ -601,6 +603,9 @@ function Index() {
           </div>
         </div>
       </section>
+
+      {/* CORE SERVICES IN KARUR */}
+      <ServicesSection />
 
       {/* FAQ SECTION (AEO & GEO) */}
       <FAQSection />
@@ -1421,6 +1426,126 @@ function ProjectShowcase() {
         </div>
       </section>
     </>
+  );
+}
+
+function ServicesSection() {
+  const services = [
+    {
+      id: "software",
+      title: "Custom Software & ERP",
+      subtitle: "Enterprise & Business Automation",
+      icon: Code2,
+      desc: "Tailor-made software, automated workflows, and production tracking systems engineered specifically for Karur textile manufacturers, exporters, transport businesses, and commercial enterprises.",
+      tags: ["ERP Systems", "Textile Inventory", "Custom Databases", "Local Karur Support"],
+    },
+    {
+      id: "marketing",
+      title: "Best Digital Marketing",
+      subtitle: "High-ROI Lead Generation & SEO",
+      icon: Megaphone,
+      desc: "Dominating search results in Karur, Tamil Nadu. We run high-conversion Meta (Instagram/Facebook) and Google PPC campaigns, alongside Local Map Pack SEO to flood your business with paying inquiries.",
+      tags: ["Local Google SEO", "Instagram Ads", "Google Search Ads", "Brand Growth"],
+    },
+    {
+      id: "billing",
+      title: "POS Billing Software",
+      subtitle: "Retail, Textile & Restaurant Systems",
+      icon: BarChart3,
+      desc: "Lightning-fast offline-ready and cloud-connected POS billing software for supermarkets, textile retail showrooms, and restaurants in Karur with thermal barcode billing and GST tax compliance.",
+      tags: ["GST Invoicing", "Barcode Scanning", "Thermal Printing", "Inventory Sync"],
+    },
+    {
+      id: "web-mobile",
+      title: "Web & Android Apps",
+      subtitle: "Modern Responsive Tech Solutions",
+      icon: Smartphone,
+      desc: "High-performance websites built with React and Next.js, paired with native Android and iOS mobile application development for superior user engagement and lightning speed.",
+      tags: ["React & Next.js", "Android Apps", "Fast Cloud Speed", "Modern UI/UX"],
+    },
+  ];
+
+  return (
+    <section id="services" className="border-t border-border bg-background py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mb-12 text-center sm:mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full border border-royal/25 bg-royal/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-royal">
+            <MapPin className="h-3.5 w-3.5" />
+            <span>Commercial Solutions · Karur & Worldwide</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-black text-navy sm:text-4xl md:text-5xl">
+            Our Core <span className="italic text-royal">Services</span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-2xl text-sm text-foreground/75 sm:text-base">
+            Empowering businesses across Karur, Tamil Nadu with custom software engineering, POS systems, and market-dominating digital advertising.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+          {services.map((s) => {
+            const Icon = s.icon;
+            return (
+              <div
+                key={s.id}
+                className="group relative overflow-hidden rounded-3xl border border-border bg-card p-6 shadow-md transition-all duration-300 hover:-translate-y-1 hover:border-royal/50 hover:shadow-xl sm:p-8"
+              >
+                <div className="flex items-start justify-between gap-4">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-royal/10 text-royal transition group-hover:bg-royal group-hover:text-white sm:h-14 sm:w-14">
+                    <Icon className="h-6 w-6 sm:h-7 sm:w-7" />
+                  </div>
+                  <span className="rounded-full bg-navy/5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider text-navy">
+                    Karur Verified
+                  </span>
+                </div>
+
+                <h3 className="mt-5 font-display text-xl font-black text-navy sm:text-2xl">
+                  {s.title}
+                </h3>
+                <p className="mt-1 text-xs font-semibold uppercase tracking-wider text-royal">
+                  {s.subtitle}
+                </p>
+
+                <p className="mt-3 text-sm leading-relaxed text-foreground/80 sm:text-[15px]">
+                  {s.desc}
+                </p>
+
+                <div className="mt-5 flex flex-wrap gap-2 border-t border-border/60 pt-4">
+                  {s.tags.map((t) => (
+                    <span
+                      key={t}
+                      className="rounded-full bg-muted/60 px-2.5 py-1 text-[11px] font-semibold text-navy/85"
+                    >
+                      ✓ {t}
+                    </span>
+                  ))}
+                </div>
+
+                <div className="mt-6 flex items-center justify-between pt-2">
+                  <a
+                    href="#contact"
+                    className="inline-flex items-center gap-1.5 text-xs font-bold text-royal transition group-hover:text-navy cursor-pointer"
+                  >
+                    <span>Request Proposal</span>
+                    <ArrowRight className="h-3.5 w-3.5 transition-transform group-hover:translate-x-1" />
+                  </a>
+                  <a
+                    href={`https://wa.me/919025360572?text=${encodeURIComponent(
+                      `Hi C-Entrepreneurs, I am interested in your ${s.title} in Karur.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-full border border-emerald-600/30 bg-emerald-50/80 px-2.5 py-1 text-[11px] font-bold text-emerald-700 transition hover:bg-emerald-600 hover:text-white cursor-pointer"
+                  >
+                    <MessageCircle className="h-3 w-3" />
+                    <span>WhatsApp</span>
+                  </a>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
   );
 }
 

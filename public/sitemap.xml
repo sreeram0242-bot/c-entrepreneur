@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://c-entrepreneur.vercel.app/</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://c-entrepreneur.vercel.app/clogo.png</image:loc>
+      <image:title>C-Entrepreneurs - Best Software Company and Digital Marketing in Karur, Tamil Nadu</image:title>
+      <image:caption>Official logo of C-Entrepreneurs, Karur premier software development agency and digital marketing provider.</image:caption>
+    </image:image>
   </url>
 </urlset>
