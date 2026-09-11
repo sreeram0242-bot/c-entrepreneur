@@ -101,8 +101,8 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
           "Custom Web & Android app development, POS solutions, and high-impact startup internships. We turn bold ideas into real, functioning companies.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://c-entrepreneurs.com/" },
-      { property: "og:image", content: "https://c-entrepreneurs.com/clogo.png" },
+      { property: "og:url", content: "https://c-entrepreneur.vercel.app/" },
+      { property: "og:image", content: "https://c-entrepreneur.vercel.app/clogo.png" },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "C-Entrepreneurs | Build. Learn. Grow." },
@@ -111,10 +111,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
         content:
           "Custom Web & Android app development, POS solutions, and high-impact startup internships.",
       },
-      { name: "twitter:image", content: "https://c-entrepreneurs.com/clogo.png" },
+      { name: "twitter:image", content: "https://c-entrepreneur.vercel.app/clogo.png" },
     ],
     links: [
-      { rel: "canonical", href: "https://c-entrepreneurs.com/" },
+      { rel: "canonical", href: "https://c-entrepreneur.vercel.app/" },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", href: "/clogo.png", type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -138,11 +138,11 @@ function RootShell({ children }: { children: ReactNode }) {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://c-entrepreneurs.com/#organization",
+        "@id": "https://c-entrepreneur.vercel.app/#organization",
         name: "C-Entrepreneurs",
-        url: "https://c-entrepreneurs.com",
-        logo: "https://c-entrepreneurs.com/clogo.png",
-        image: "https://c-entrepreneurs.com/clogo.png",
+        url: "https://c-entrepreneur.vercel.app",
+        logo: "https://c-entrepreneur.vercel.app/clogo.png",
+        image: "https://c-entrepreneur.vercel.app/clogo.png",
         description:
           "Entrepreneurs Service Provider & Software Development Agency. We build, revive, and execute real companies.",
         email: "hello@c-entrepreneurs.com",
@@ -157,21 +157,21 @@ function RootShell({ children }: { children: ReactNode }) {
       },
       {
         "@type": "WebSite",
-        "@id": "https://c-entrepreneurs.com/#website",
-        url: "https://c-entrepreneurs.com",
+        "@id": "https://c-entrepreneur.vercel.app/#website",
+        url: "https://c-entrepreneur.vercel.app",
         name: "C-Entrepreneurs",
         description: "Build. Learn. Grow. Solutions that work, relationships that last.",
         publisher: {
-          "@id": "https://c-entrepreneurs.com/#organization",
+          "@id": "https://c-entrepreneur.vercel.app/#organization",
         },
       },
       {
         "@type": "ProfessionalService",
-        "@id": "https://c-entrepreneurs.com/#service",
+        "@id": "https://c-entrepreneur.vercel.app/#service",
         name: "C-Entrepreneurs Software & Startup Services",
-        url: "https://c-entrepreneurs.com",
+        url: "https://c-entrepreneur.vercel.app",
         parentOrganization: {
-          "@id": "https://c-entrepreneurs.com/#organization",
+          "@id": "https://c-entrepreneur.vercel.app/#organization",
         },
         priceRange: "$$",
         areaServed: "Global",

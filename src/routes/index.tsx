@@ -49,8 +49,8 @@ export const Route = createFileRoute("/")({
           "Custom Web & Android app development, POS solutions, and high-impact startup internships. We turn bold ideas into real, functioning companies.",
       },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://c-entrepreneurs.com/" },
-      { property: "og:image", content: "https://c-entrepreneurs.com/clogo.png" },
+      { property: "og:url", content: "https://c-entrepreneur.vercel.app/" },
+      { property: "og:image", content: "https://c-entrepreneur.vercel.app/clogo.png" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: "C-Entrepreneurs | Build. Learn. Grow." },
       {
@@ -58,9 +58,9 @@ export const Route = createFileRoute("/")({
         content:
           "Custom Web & Android app development, POS solutions, and high-impact startup internships.",
       },
-      { name: "twitter:image", content: "https://c-entrepreneurs.com/clogo.png" },
+      { name: "twitter:image", content: "https://c-entrepreneur.vercel.app/clogo.png" },
     ],
-    links: [{ rel: "canonical", href: "https://c-entrepreneurs.com/" }],
+    links: [{ rel: "canonical", href: "https://c-entrepreneur.vercel.app/" }],
   }),
   component: Index,
 });
@@ -981,25 +981,87 @@ function ProjectShowcase() {
     setSelected(id);
   };
 
+  const infiniteProjects = [
+    ...projects.map((p, i) => ({ ...p, loopKey: `${p.id}-l0-${i}` })),
+    ...projects.map((p, i) => ({ ...p, loopKey: `${p.id}-l1-${i}` })),
+    ...projects.map((p, i) => ({ ...p, loopKey: `${p.id}-l2-${i}` })),
+  ];
+
   const isDown = useRef(false);
   const startX = useRef(0);
   const scrollLeftPos = useRef(0);
   const hasMoved = useRef(false);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Position at the middle set on mount
+  useEffect(() => {
+    const track = scrollRef.current;
+    if (!track) return;
+    const timer = setTimeout(() => {
+      if (track) {
+        track.scrollLeft = track.scrollWidth / 3;
+      }
+    }, 60);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Continuous gentle infinite auto-glide (pauses on hover or while dragging)
+  useEffect(() => {
+    let animId: number;
+    let lastTime = performance.now();
+
+    const loop = (time: number) => {
+      const delta = Math.min(time - lastTime, 40);
+      lastTime = time;
+
+      if (!isPaused && !isDown.current && scrollRef.current) {
+        const track = scrollRef.current;
+        const singleSetWidth = track.scrollWidth / 3;
+
+        track.scrollLeft += 0.04 * delta;
+
+        if (singleSetWidth > 0 && track.scrollLeft >= singleSetWidth * 2) {
+          track.scrollLeft -= singleSetWidth;
+        }
+      }
+      animId = requestAnimationFrame(loop);
+    };
+
+    animId = requestAnimationFrame(loop);
+    return () => cancelAnimationFrame(animId);
+  }, [isPaused]);
+
+  // Seamless infinite loop when manually scrolling
+  const onScroll = () => {
+    if (!scrollRef.current) return;
+    const track = scrollRef.current;
+    const singleSetWidth = track.scrollWidth / 3;
+    if (singleSetWidth <= 0) return;
+
+    if (track.scrollLeft >= singleSetWidth * 2) {
+      track.scrollLeft -= singleSetWidth;
+    } else if (track.scrollLeft <= 5) {
+      track.scrollLeft += singleSetWidth;
+    }
+  };
 
   const onMouseDown = (e: React.MouseEvent) => {
     if (!scrollRef.current) return;
     isDown.current = true;
     hasMoved.current = false;
+    setIsPaused(true);
     startX.current = e.pageX - scrollRef.current.offsetLeft;
     scrollLeftPos.current = scrollRef.current.scrollLeft;
   };
 
   const onMouseLeave = () => {
     isDown.current = false;
+    setIsPaused(false);
   };
 
   const onMouseUp = () => {
     isDown.current = false;
+    setIsPaused(false);
   };
 
   const onMouseMove = (e: React.MouseEvent) => {
@@ -1010,7 +1072,19 @@ function ProjectShowcase() {
     if (Math.abs(walk) > 6) {
       hasMoved.current = true;
     }
-    scrollRef.current.scrollLeft = scrollLeftPos.current - walk;
+    const track = scrollRef.current;
+    track.scrollLeft = scrollLeftPos.current - walk;
+
+    const singleSetWidth = track.scrollWidth / 3;
+    if (singleSetWidth > 0) {
+      if (track.scrollLeft >= singleSetWidth * 2) {
+        track.scrollLeft -= singleSetWidth;
+        scrollLeftPos.current -= singleSetWidth;
+      } else if (track.scrollLeft <= 5) {
+        track.scrollLeft += singleSetWidth;
+        scrollLeftPos.current += singleSetWidth;
+      }
+    }
   };
 
   const scrollLeft = () => {
@@ -1046,7 +1120,7 @@ function ProjectShowcase() {
                 Featured Client Work
               </h2>
               <p className="mt-1 text-xs text-muted-foreground sm:text-sm">
-                Real software & apps built and launched by our team — swipe or click any project for details.
+                Real software & apps built and launched by our team — swipe, drag or click any project for details.
               </p>
             </div>
 
@@ -1069,13 +1143,17 @@ function ProjectShowcase() {
             </div>
           </div>
 
-          {/* Horizontal scroll track with smooth momentum & drag support */}
+          {/* Horizontal scroll track with seamless infinite scrolling */}
           <div
             ref={scrollRef}
+            onScroll={onScroll}
             onMouseDown={onMouseDown}
             onMouseLeave={onMouseLeave}
             onMouseUp={onMouseUp}
             onMouseMove={onMouseMove}
+            onMouseEnter={() => setIsPaused(true)}
+            onTouchStart={() => setIsPaused(true)}
+            onTouchEnd={() => setIsPaused(false)}
             style={{
               display: "flex",
               gap: "20px",
@@ -1084,17 +1162,16 @@ function ProjectShowcase() {
               paddingTop: "8px",
               paddingLeft: "4px",
               paddingRight: "4px",
-              scrollBehavior: "smooth",
               WebkitOverflowScrolling: "touch",
               scrollbarWidth: "none",
               cursor: "grab",
             }}
             className="projects-scroll select-none active:cursor-grabbing"
           >
-            {projects.map((project) => (
+            {infiniteProjects.map((project) => (
               <button
-                key={project.id}
-                id={`project-card-${project.id}`}
+                key={project.loopKey}
+                id={`project-card-${project.loopKey}`}
                 onClick={() => {
                   if (!hasMoved.current) {
                     openProject(project.id);
@@ -1202,19 +1279,30 @@ function ProjectShowcase() {
             ))}
           </div>
 
-          {/* Scroll hint dots & mobile indicator */}
-          <div className="mt-4 flex items-center justify-center gap-1.5">
-            {projects.map((p, i) => (
-              <button
-                key={p.id}
-                onClick={() => {
-                  const cards = scrollRef.current?.querySelectorAll("button");
-                  cards?.[i]?.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
-                }}
-                className="h-2 w-2 rounded-full bg-navy/30 transition-all hover:bg-royal hover:w-5"
-                aria-label={`Go to ${p.title}`}
+          {/* Live Infinite Showcase Footer with Pause / Resume toggle */}
+          <div className="mt-4 flex items-center justify-between px-2 text-xs text-muted-foreground">
+            <span className="inline-flex items-center gap-2">
+              <span
+                className={`inline-block h-2 w-2 rounded-full ${
+                  isPaused ? "bg-amber-400" : "bg-emerald-500 animate-pulse"
+                }`}
               />
-            ))}
+              <span className="hidden sm:inline">
+                {isPaused
+                  ? "Paused — swipe or click any project to view details"
+                  : "Infinite auto-scrolling showcase — hover to pause"}
+              </span>
+              <span className="sm:hidden text-[11px]">
+                {isPaused ? "Paused" : "Infinite live showcase"}
+              </span>
+            </span>
+
+            <button
+              onClick={() => setIsPaused((prev) => !prev)}
+              className="inline-flex items-center gap-1.5 rounded-full border border-navy/15 bg-white px-3 py-1 text-[11px] font-bold text-navy shadow-sm transition hover:bg-navy hover:text-white"
+            >
+              {isPaused ? "▶ Resume Flow" : "⏸ Pause"}
+            </button>
           </div>
         </div>
       </section>

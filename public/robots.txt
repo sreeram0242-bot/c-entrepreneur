@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 
 # Sitemap
-Sitemap: https://c-entrepreneurs.com/sitemap.xml
+Sitemap: https://c-entrepreneur.vercel.app/sitemap.xml
