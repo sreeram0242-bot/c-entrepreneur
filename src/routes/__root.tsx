@@ -152,9 +152,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { rel: "canonical", href: "https://c-entrepreneur.vercel.app/" },
       { rel: "manifest", href: "/manifest.json" },
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/clogo.png?v=2", type: "image/png" },
-      { rel: "shortcut icon", href: "/favicon.ico?v=2" },
-      { rel: "apple-touch-icon", href: "/clogo.png?v=2" },
+      { rel: "icon", type: "image/png", sizes: "48x48", href: "/favicon-48x48.png" },
+      { rel: "icon", type: "image/png", sizes: "96x96", href: "/favicon-96x96.png" },
+      { rel: "icon", type: "image/png", sizes: "192x192", href: "/favicon-192x192.png" },
+      { rel: "icon", type: "image/png", sizes: "512x512", href: "/clogo.png" },
+      { rel: "shortcut icon", href: "/favicon.ico" },
+      { rel: "apple-touch-icon", sizes: "180x180", href: "/clogo.png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {
@@ -425,9 +428,6 @@ function RootShell({ children }: { children: ReactNode }) {
           name="google-site-verification"
           content="VbvJ4F6jQNC4GD6ESCZnav91MS-nWC1kbEij4emY8-8"
         />
-        <link rel="icon" type="image/png" href="/clogo.png?v=2" />
-        <link rel="shortcut icon" href="/favicon.ico?v=2" />
-        <link rel="apple-touch-icon" href="/clogo.png?v=2" />
         <HeadContent />
         <script
           type="application/ld+json"
