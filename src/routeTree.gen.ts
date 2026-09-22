@@ -10,33 +10,57 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as DigitalMarketingInKarurRouteImport } from './routes/digital-marketing-in-karur'
+import { Route as SoftwareCompanyInKarurRouteImport } from './routes/software-company-in-karur'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const DigitalMarketingInKarurRoute = DigitalMarketingInKarurRouteImport.update({
+  id: '/digital-marketing-in-karur',
+  path: '/digital-marketing-in-karur',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SoftwareCompanyInKarurRoute = SoftwareCompanyInKarurRouteImport.update({
+  id: '/software-company-in-karur',
+  path: '/software-company-in-karur',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/digital-marketing-in-karur': typeof DigitalMarketingInKarurRoute
+  '/software-company-in-karur': typeof SoftwareCompanyInKarurRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/digital-marketing-in-karur': typeof DigitalMarketingInKarurRoute
+  '/software-company-in-karur': typeof SoftwareCompanyInKarurRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/digital-marketing-in-karur': typeof DigitalMarketingInKarurRoute
+  '/software-company-in-karur': typeof SoftwareCompanyInKarurRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/digital-marketing-in-karur' | '/software-company-in-karur'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/digital-marketing-in-karur' | '/software-company-in-karur'
+  id:
+    | '__root__'
+    | '/'
+    | '/digital-marketing-in-karur'
+    | '/software-company-in-karur'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  DigitalMarketingInKarurRoute: typeof DigitalMarketingInKarurRoute
+  SoftwareCompanyInKarurRoute: typeof SoftwareCompanyInKarurRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +72,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/digital-marketing-in-karur': {
+      id: '/digital-marketing-in-karur'
+      path: '/digital-marketing-in-karur'
+      fullPath: '/digital-marketing-in-karur'
+      preLoaderRoute: typeof DigitalMarketingInKarurRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/software-company-in-karur': {
+      id: '/software-company-in-karur'
+      path: '/software-company-in-karur'
+      fullPath: '/software-company-in-karur'
+      preLoaderRoute: typeof SoftwareCompanyInKarurRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  DigitalMarketingInKarurRoute: DigitalMarketingInKarurRoute,
+  SoftwareCompanyInKarurRoute: SoftwareCompanyInKarurRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

@@ -1,20 +1,55 @@
 User-agent: *
 Allow: /
 
+# Google Search & Gemini Grounding
 User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: PerplexityBot
 Allow: /
 
 User-agent: Google-Extended
 Allow: /
 
-# Sitemap
+# Bing & Copilot
+User-agent: Bingbot
+Allow: /
+
+# OpenAI / ChatGPT / SearchGPT
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# Perplexity AI
+User-agent: PerplexityBot
+Allow: /
+
+# Anthropic / Claude
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# Apple Intelligence
+User-agent: Applebot-Extended
+Allow: /
+
+# Meta AI
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Cohere AI
+User-agent: cohere-ai
+Allow: /
+
+# ByteDance / TikTok
+User-agent: Bytespider
+Allow: /
+
+# Sitemaps & LLM Context
 Sitemap: https://c-entrepreneur.vercel.app/sitemap.xml
+# LLM Context: https://c-entrepreneur.vercel.app/llms.txt
+# LLM Context Full: https://c-entrepreneur.vercel.app/llms-full.txt

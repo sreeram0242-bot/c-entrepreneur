@@ -79,19 +79,19 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       {
         title:
-          "C-Entrepreneurs | Best Software Company & Digital Marketing Agency in Karur, Tamil Nadu",
+          "C-Entrepreneurs (C Entrepreneurs) | Best Software Company & Digital Marketing Agency in Karur, Tamil Nadu",
       },
       {
         name: "description",
         content:
-          "C-Entrepreneurs is the premier software company and digital marketing agency in Karur, Tamil Nadu. We build custom softwares, POS billing systems, web applications, Android apps, and drive high-ROI SEO & digital marketing.",
+          "C-Entrepreneurs (C Entrepreneurs) is the premier software company and top digital marketing agency in Karur, Tamil Nadu. We build custom softwares, ERPs, POS billing systems, web & Android apps, and deliver high-ROI Local SEO & Google/Meta ads.",
       },
       {
         name: "keywords",
         content:
-          "software company in Karur, best digital marketing in Karur, custom softwares in Karur, software company Karur, digital marketing agency Karur, web development company Karur, billing software Karur, POS software Karur, Android app development Karur, SEO services Karur, IT company in Karur, C-Entrepreneurs Karur, tech startup Karur Tamil Nadu",
+          "c entrepreneurs, c entrepreneur, c-entrepreneurs, c-entrepreneur, centrepreneurs, software company in karur, digital marketing in karur, best software company in karur, best digital marketing in karur, custom softwares in Karur, software company Karur, digital marketing agency Karur, web development company Karur, billing software Karur, POS software Karur, Android app development Karur, SEO services Karur, IT company in Karur, C-Entrepreneurs Karur, tech startup Karur Tamil Nadu",
       },
-      { name: "author", content: "C-Entrepreneurs" },
+      { name: "author", content: "C-Entrepreneurs (C Entrepreneurs)" },
       {
         name: "robots",
         content: "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1",
@@ -106,10 +106,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { name: "country", content: "India" },
       { name: "target-location", content: "Karur, Tamil Nadu, India" },
       { name: "coverage", content: "Karur, Tamil Nadu, India, Global" },
-      { property: "og:site_name", content: "C-Entrepreneurs" },
+      { property: "og:site_name", content: "C-Entrepreneurs (C Entrepreneurs)" },
       {
         property: "og:title",
-        content: "C-Entrepreneurs | Best Software Company & Digital Marketing in Karur",
+        content: "C-Entrepreneurs (C Entrepreneurs) | Best Software Company & Digital Marketing in Karur",
       },
       {
         property: "og:description",
@@ -129,13 +129,13 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         property: "og:image:alt",
         content:
-          "C-Entrepreneurs - Best Software Company & Digital Marketing Agency in Karur, Tamil Nadu",
+          "C-Entrepreneurs (C Entrepreneurs) - Best Software Company & Digital Marketing Agency in Karur, Tamil Nadu",
       },
       { property: "og:locale", content: "en_US" },
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "C-Entrepreneurs | Best Software Company & Digital Marketing in Karur",
+        content: "C-Entrepreneurs (C Entrepreneurs) | Best Software Company & Digital Marketing in Karur",
       },
       {
         name: "twitter:description",
@@ -175,16 +175,25 @@ function RootShell({ children }: { children: ReactNode }) {
     "@context": "https://schema.org",
     "@graph": [
       {
-        "@type": ["LocalBusiness", "ProfessionalService", "Organization"],
+        "@type": ["LocalBusiness", "ProfessionalService", "Corporation", "Organization"],
         "@id": "https://c-entrepreneur.vercel.app/#localbusiness",
         name: "C-Entrepreneurs",
+        legalName: "C Entrepreneurs",
         alternateName: [
-          "C-Entrepreneurs Karur",
           "C Entrepreneurs",
+          "C Entrepreneur",
+          "C-Entrepreneurs",
+          "C-Entrepreneur",
+          "CEntrepreneurs",
+          "C-Entrepreneurs Karur",
+          "C Entrepreneurs Karur",
           "Best Digital Marketing in Karur",
           "Software Company in Karur",
           "Custom Softwares in Karur",
+          "Billing Software Karur",
         ],
+        disambiguatingDescription:
+          "C-Entrepreneurs (also commonly searched as C Entrepreneurs) is the premier software company and digital marketing agency based in Karur, Tamil Nadu, India, specializing in custom ERP, POS billing software, React/Next.js web apps, Android apps, and high-ROI local SEO.",
         url: "https://c-entrepreneur.vercel.app",
         sameAs: [
           "https://www.instagram.com/c__entrepreneurs__",
@@ -193,7 +202,7 @@ function RootShell({ children }: { children: ReactNode }) {
         logo: "https://c-entrepreneur.vercel.app/clogo.png",
         image: "https://c-entrepreneur.vercel.app/clogo.png",
         description:
-          "C-Entrepreneurs is the premier software company and digital marketing agency in Karur, Tamil Nadu. We specialize in custom software development, POS billing systems, web applications, Android mobile apps, SEO, and social media marketing.",
+          "C-Entrepreneurs (C Entrepreneurs) is the premier software company and digital marketing agency in Karur, Tamil Nadu. We specialize in custom software development, POS billing systems, web applications, Android mobile apps, SEO, and social media marketing.",
         email: "centrepreneursb2c@gmail.com",
         telephone: "+91-90253-60572",
         contactPoint: [
@@ -240,6 +249,7 @@ function RootShell({ children }: { children: ReactNode }) {
         ],
         areaServed: [
           { "@type": "City", name: "Karur" },
+          { "@type": "AdministrativeArea", name: "Karur District" },
           { "@type": "State", name: "Tamil Nadu" },
           { "@type": "Country", name: "India" },
           { "@type": "City", name: "Tiruchirappalli" },
@@ -247,51 +257,59 @@ function RootShell({ children }: { children: ReactNode }) {
           { "@type": "City", name: "Erode" },
           { "@type": "City", name: "Dindigul" },
         ],
-        makesOffer: [
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Custom Software Development in Karur",
-              description:
-                "Enterprise software solutions, inventory systems, textile workflow software, and custom business tools in Karur, Tamil Nadu.",
+        hasOfferCatalog: {
+          "@type": "OfferCatalog",
+          name: "Karur Commercial Technology & Marketing Services",
+          itemListElement: [
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Custom Software Development in Karur",
+                description:
+                  "Tailored enterprise software, textile ERPs, loom workflow tracking, inventory systems, and business automation in Karur, Tamil Nadu.",
+              },
             },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Best Digital Marketing in Karur",
-              description:
-                "Full-service digital marketing, Local SEO, Google Business Profile ranking, Meta and Google Ads, and brand growth in Karur.",
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Best Digital Marketing in Karur",
+                description:
+                  "Comprehensive digital marketing, Local Google Maps SEO ranking, Meta & Instagram Ads, Google PPC campaigns, and client acquisition in Karur.",
+              },
             },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "POS Billing Software Karur",
-              description:
-                "Fast, reliable cloud and offline POS billing software for retail shops, textile outlets, and restaurants in Karur.",
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "POS Billing Software Karur",
+                description:
+                  "Lightning-fast offline & cloud POS billing systems with barcode scanning, thermal printing, and GST compliance for supermarkets, retail, and cafes in Karur.",
+              },
             },
-          },
-          {
-            "@type": "Offer",
-            itemOffered: {
-              "@type": "Service",
-              name: "Web and Mobile App Development",
-              description:
-                "Modern high-speed React/Next.js websites and Android application development tailored for commercial success.",
+            {
+              "@type": "Offer",
+              itemOffered: {
+                "@type": "Service",
+                name: "Web and Android App Development Karur",
+                description:
+                  "Modern React & Next.js websites and native Android mobile apps crafted for speed, conversions, and business scale.",
+              },
             },
-          },
-        ],
+          ],
+        },
         knowsAbout: [
+          "C-Entrepreneurs",
+          "C Entrepreneurs",
           "Custom Software Development",
-          "Digital Marketing",
+          "Software Company in Karur",
+          "Digital Marketing in Karur",
           "POS Billing Software",
           "SEO & Local Search Engine Optimization",
           "Web Application Development",
           "Android Mobile App Development",
+          "Textile ERP Software",
           "Social Media Marketing",
           "Startup Incubation",
         ],
@@ -300,7 +318,8 @@ function RootShell({ children }: { children: ReactNode }) {
         "@type": "WebSite",
         "@id": "https://c-entrepreneur.vercel.app/#website",
         url: "https://c-entrepreneur.vercel.app",
-        name: "C-Entrepreneurs",
+        name: "C-Entrepreneurs (C Entrepreneurs)",
+        alternateName: ["C Entrepreneurs", "C Entrepreneur", "c-entrepreneur"],
         description: "Best Digital Marketing & Custom Software Company in Karur, Tamil Nadu.",
         publisher: {
           "@id": "https://c-entrepreneur.vercel.app/#localbusiness",
@@ -312,10 +331,18 @@ function RootShell({ children }: { children: ReactNode }) {
         mainEntity: [
           {
             "@type": "Question",
+            name: "What is C Entrepreneurs (C-Entrepreneurs)?",
+            acceptedAnswer: {
+              "@type": "Answer",
+              text: "C-Entrepreneurs (also known as C Entrepreneurs or C-Entrepreneur) is Karur's premier custom software company and full-service digital marketing agency based in Karur, Tamil Nadu. Operating under the motto 'BUILT | REVIVE | EXECUTE', the company builds enterprise software, POS billing solutions, mobile apps, and leads high-ROI digital marketing campaigns.",
+            },
+          },
+          {
+            "@type": "Question",
             name: "Which is the best software company in Karur?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "C-Entrepreneurs is recognized as the best software company in Karur, Tamil Nadu. We specialize in custom software development, web applications, Android apps, and automated POS billing software designed specifically for local businesses, textile manufacturers, and growing startups.",
+              text: "C-Entrepreneurs (C Entrepreneurs) is recognized as the best software company in Karur, Tamil Nadu. We specialize in custom software development, web applications, Android apps, and automated POS billing software designed specifically for local businesses, textile manufacturers, and growing startups.",
             },
           },
           {
@@ -323,7 +350,7 @@ function RootShell({ children }: { children: ReactNode }) {
             name: "Which agency provides the best digital marketing in Karur?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "C-Entrepreneurs offers the best digital marketing services in Karur, Tamil Nadu. Our expertise spans Local SEO, Google Business Profile optimization, Meta & Instagram Ads, Google PPC campaigns, and targeted lead generation to grow local businesses and export companies.",
+              text: "C-Entrepreneurs (C Entrepreneurs) offers the best digital marketing services in Karur, Tamil Nadu. Our expertise spans Local SEO, Google Business Profile optimization, Meta & Instagram Ads, Google PPC campaigns, and targeted lead generation to grow local businesses and export companies.",
             },
           },
           {
@@ -331,7 +358,7 @@ function RootShell({ children }: { children: ReactNode }) {
             name: "Where can I get custom software and billing software in Karur?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "You can get customized business software, ERP systems, and modern POS billing software in Karur directly from C-Entrepreneurs. We build secure, reliable software with local Karur support. Contact +91 90253 60572 or email centrepreneursb2c@gmail.com.",
+              text: "You can get customized business software, ERP systems, and modern POS billing software in Karur directly from C-Entrepreneurs (C Entrepreneurs). We build secure, reliable software with local Karur support. Contact +91 90253 60572 or email centrepreneursb2c@gmail.com.",
             },
           },
           {
@@ -339,7 +366,7 @@ function RootShell({ children }: { children: ReactNode }) {
             name: "Does C-Entrepreneurs provide website development and mobile apps in Karur?",
             acceptedAnswer: {
               "@type": "Answer",
-              text: "Yes, C-Entrepreneurs provides complete web development (React, Next.js, full-stack) and native Android/iOS mobile application development in Karur, Tamil Nadu with modern UI/UX design, cloud scalability, and continuous maintenance.",
+              text: "Yes, C-Entrepreneurs (C Entrepreneurs) provides complete web development (React, Next.js, full-stack) and native Android/iOS mobile application development in Karur, Tamil Nadu with modern UI/UX design, cloud scalability, and continuous maintenance.",
             },
           },
           {
@@ -365,20 +392,20 @@ function RootShell({ children }: { children: ReactNode }) {
           {
             "@type": "ListItem",
             position: 2,
-            name: "Services in Karur",
-            item: "https://c-entrepreneur.vercel.app/#services",
+            name: "Software Company in Karur",
+            item: "https://c-entrepreneur.vercel.app/software-company-in-karur",
           },
           {
             "@type": "ListItem",
             position: 3,
-            name: "Projects",
-            item: "https://c-entrepreneur.vercel.app/#projects",
+            name: "Digital Marketing in Karur",
+            item: "https://c-entrepreneur.vercel.app/digital-marketing-in-karur",
           },
           {
             "@type": "ListItem",
             position: 4,
-            name: "FAQ",
-            item: "https://c-entrepreneur.vercel.app/#faq",
+            name: "Projects",
+            item: "https://c-entrepreneur.vercel.app/#projects",
           },
           {
             "@type": "ListItem",

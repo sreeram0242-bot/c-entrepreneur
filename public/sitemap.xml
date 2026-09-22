@@ -1,15 +1,42 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Homepage -->
   <url>
     <loc>https://c-entrepreneur.vercel.app/</loc>
-    <lastmod>2026-09-11</lastmod>
+    <lastmod>2026-09-22</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
     <image:image>
       <image:loc>https://c-entrepreneur.vercel.app/clogo.png</image:loc>
-      <image:title>C-Entrepreneurs - Best Software Company and Digital Marketing in Karur, Tamil Nadu</image:title>
-      <image:caption>Official logo of C-Entrepreneurs, Karur premier software development agency and digital marketing provider.</image:caption>
+      <image:title>C-Entrepreneurs (C Entrepreneurs) - Best Software Company &amp; Digital Marketing Agency in Karur</image:title>
+      <image:caption>Official logo of C-Entrepreneurs, Karur's premier software development and digital marketing company.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Dedicated Software Company in Karur Page -->
+  <url>
+    <loc>https://c-entrepreneur.vercel.app/software-company-in-karur</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://c-entrepreneur.vercel.app/clogo.png</image:loc>
+      <image:title>Best Software Company in Karur - Custom ERP, Web &amp; Android Apps, POS Billing</image:title>
+      <image:caption>C-Entrepreneurs software solutions in Karur, Tamil Nadu.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Dedicated Digital Marketing in Karur Page -->
+  <url>
+    <loc>https://c-entrepreneur.vercel.app/digital-marketing-in-karur</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://c-entrepreneur.vercel.app/clogo.png</image:loc>
+      <image:title>Best Digital Marketing Agency in Karur - Local SEO, Meta Ads &amp; Lead Generation</image:title>
+      <image:caption>High ROI digital marketing and SEO services in Karur by C-Entrepreneurs.</image:caption>
     </image:image>
   </url>
 </urlset>

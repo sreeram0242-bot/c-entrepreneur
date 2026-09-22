@@ -1,4 +1,4 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
 import { useEffect, useRef, useState } from "react";
 import {
   TrendingUp,
@@ -30,6 +30,7 @@ import {
   X,
   CheckCircle2,
   Linkedin,
+  Building2,
 } from "lucide-react";
 
 
@@ -38,31 +39,31 @@ export const Route = createFileRoute("/")({
     meta: [
       {
         title:
-          "C-Entrepreneurs | Best Software Company & Digital Marketing Agency in Karur, Tamil Nadu",
+          "C-Entrepreneurs (C Entrepreneurs) | Best Software Company & Digital Marketing Agency in Karur, Tamil Nadu",
       },
       {
         name: "description",
         content:
-          "Looking for the best software company or top digital marketing agency in Karur? C-Entrepreneurs builds custom softwares, POS billing systems, web applications, Android apps, and delivers high-ROI SEO & digital marketing.",
+          "Looking for the best software company or top digital marketing agency in Karur? C-Entrepreneurs (C Entrepreneurs) builds custom softwares, textile ERPs, POS billing systems, Android apps, and delivers high-ROI Local SEO & digital marketing.",
       },
       {
         name: "keywords",
         content:
-          "software company in Karur, best digital marketing in Karur, custom softwares in Karur, software company Karur, digital marketing agency Karur, web development company Karur, billing software Karur, POS software Karur, Android app development Karur, SEO services Karur, IT company in Karur, C-Entrepreneurs Karur",
+          "c entrepreneurs, c entrepreneur, c-entrepreneurs, c-entrepreneur, centrepreneurs, software company in karur, digital marketing in karur, best software company in karur, best digital marketing in karur, custom softwares in Karur, software company Karur, digital marketing agency Karur, web development company Karur, billing software Karur, POS software Karur, Android app development Karur, SEO services Karur, IT company in Karur, C-Entrepreneurs Karur",
       },
       { name: "geo.region", content: "IN-TN" },
       { name: "geo.placename", content: "Karur, Tamil Nadu, India" },
       { name: "geo.position", content: "10.9601;78.0766" },
       { name: "ICBM", content: "10.9601, 78.0766" },
-      { property: "og:site_name", content: "C-Entrepreneurs" },
+      { property: "og:site_name", content: "C-Entrepreneurs (C Entrepreneurs)" },
       {
         property: "og:title",
-        content: "C-Entrepreneurs | Best Software Company & Digital Marketing in Karur",
+        content: "C-Entrepreneurs (C Entrepreneurs) | Best Software Company & Digital Marketing in Karur",
       },
       {
         property: "og:description",
         content:
-          "C-Entrepreneurs is Karur's premier custom software development company and digital marketing agency. We build, revive, and execute real companies.",
+          "C-Entrepreneurs (C Entrepreneurs) is Karur's premier custom software development company and digital marketing agency. We build, revive, and execute real companies.",
       },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://c-entrepreneur.vercel.app/" },
@@ -70,7 +71,7 @@ export const Route = createFileRoute("/")({
       { name: "twitter:card", content: "summary_large_image" },
       {
         name: "twitter:title",
-        content: "C-Entrepreneurs | Best Software Company & Digital Marketing in Karur",
+        content: "C-Entrepreneurs (C Entrepreneurs) | Best Software Company & Digital Marketing in Karur",
       },
       {
         name: "twitter:description",
@@ -345,14 +346,18 @@ function Index() {
               <span className="hidden text-[9px] tracking-[0.2em] text-muted-foreground sm:block">SOLUTIONS · RELATIONSHIPS</span>
             </div>
           </a>
-          <nav className="hidden items-center gap-6 text-sm font-medium text-navy lg:flex lg:gap-8">
+          <nav className="hidden items-center gap-5 text-sm font-medium text-navy lg:flex lg:gap-7">
+            <Link to="/software-company-in-karur" className="text-royal font-semibold hover:text-navy transition-colors">
+              Software Company
+            </Link>
+            <Link to="/digital-marketing-in-karur" className="text-royal font-semibold hover:text-navy transition-colors">
+              Digital Marketing
+            </Link>
             <a href="#services" onClick={(e) => scrollToSection(e, "services")} className="hover:text-royal transition-colors cursor-pointer">Services</a>
-            <a href="#concept" onClick={(e) => scrollToSection(e, "concept")} className="hover:text-royal transition-colors cursor-pointer">The Concept</a>
-            <a href="#internship" onClick={(e) => scrollToSection(e, "internship")} className="hover:text-royal transition-colors cursor-pointer">Internship</a>
             <a href="#projects" onClick={(e) => scrollToSection(e, "projects")} className="hover:text-royal transition-colors cursor-pointer">Projects</a>
             <a href="#faq" onClick={(e) => scrollToSection(e, "faq")} className="hover:text-royal transition-colors cursor-pointer">FAQ</a>
             <a href="#why" onClick={(e) => scrollToSection(e, "why")} className="hover:text-royal transition-colors cursor-pointer">Why Us</a>
-            <a href="#apply" onClick={(e) => scrollToSection(e, "apply")} className="hover:text-royal transition-colors cursor-pointer">Apply</a>
+            <a href="#contact" onClick={(e) => scrollToSection(e, "contact")} className="hover:text-royal transition-colors cursor-pointer">Contact</a>
           </nav>
           <a
             href="#apply"
@@ -395,15 +400,15 @@ function Index() {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               <MapPin className="h-3 w-3 text-royal" />
-              <span>Karur, Tamil Nadu · Software & Digital Marketing Agency</span>
+              <span>Karur, Tamil Nadu · C-Entrepreneurs (C Entrepreneurs)</span>
             </div>
             <p className="mb-2 text-xs font-semibold tracking-[0.25em] text-royal sm:mb-3 sm:text-sm">WELCOME TO</p>
             <h1 className="font-display whitespace-nowrap text-[clamp(1.4rem,8.5vw,5.25rem)] font-black leading-[0.95] text-navy">
-              <span className="sr-only">C-Entrepreneurs — Best Software Company & Digital Marketing Agency in Karur | </span>
+              <span className="sr-only">C-Entrepreneurs (C Entrepreneurs) — Best Software Company & Digital Marketing Agency in Karur | </span>
               C-ENTRE<span className="text-royal">PRENEURS</span>
             </h1>
             <p className="mt-1 text-[11px] font-semibold uppercase tracking-[0.2em] text-navy/70 sm:text-sm sm:tracking-[0.25em]">
-              Best Digital Marketing & Software Company in Karur
+              C-Entrepreneurs (C Entrepreneurs) · Best Digital Marketing & Software Company in Karur
             </p>
 
             <p className="font-script mt-2 text-3xl text-navy sm:text-4xl">Build. Learn. Grow.</p>
@@ -415,7 +420,7 @@ function Index() {
 
             <p className="mt-6 max-w-lg text-sm leading-relaxed text-muted-foreground sm:mt-8 sm:text-base">
               Karur&apos;s premier hub for custom software development, POS billing solutions, and high-ROI digital marketing. Turning ideas into real, functioning companies with{" "}
-              <span className="font-semibold text-royal">C-Entrepreneurs.</span>
+              <span className="font-semibold text-royal">C-Entrepreneurs (also known as C Entrepreneurs).</span>
             </p>
 
             <div className="mt-6 flex flex-wrap gap-3 sm:mt-8 sm:gap-4">
@@ -607,6 +612,9 @@ function Index() {
       {/* CORE SERVICES IN KARUR */}
       <ServicesSection />
 
+      {/* KARUR TECH & COMMERCIAL HUB (SEO AUTHORITY) */}
+      <KarurHubSection />
+
       {/* FAQ SECTION (AEO & GEO) */}
       <FAQSection />
 
@@ -651,16 +659,25 @@ function Index() {
         <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-4 text-center text-xs text-muted-foreground sm:flex-row sm:px-6 sm:text-left">
           <div>
             <p className="font-medium text-foreground/90">
-              © {new Date().getFullYear()} C-Entrepreneurs. Solutions that work. Relationships that last.
+              © {new Date().getFullYear()} C-Entrepreneurs (C Entrepreneurs). Solutions that work. Relationships that last.
             </p>
             <p className="mt-1 flex flex-wrap items-center justify-center gap-1.5 sm:justify-start text-[11px] text-muted-foreground">
               <MapPin className="h-3.5 w-3.5 text-royal shrink-0" />
-              <span>Karur, Tamil Nadu 639001, India</span>
+              <span>Karur Town, Karur, Tamil Nadu 639001, India</span>
               <span className="text-muted-foreground/40">·</span>
-              <a href="tel:+919025360572" className="text-navy hover:text-royal transition">
+              <a href="tel:+919025360572" className="text-navy hover:text-royal transition font-semibold">
                 +91 90253 60572
               </a>
             </p>
+            <div className="mt-2.5 flex flex-wrap items-center justify-center gap-2 sm:justify-start text-xs font-semibold text-royal">
+              <Link to="/software-company-in-karur" className="hover:text-navy transition">
+                Software Company in Karur
+              </Link>
+              <span className="text-muted-foreground/40">·</span>
+              <Link to="/digital-marketing-in-karur" className="hover:text-navy transition">
+                Digital Marketing in Karur
+              </Link>
+            </div>
           </div>
           <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-4">
             <div className="flex items-center gap-2">
@@ -1549,25 +1566,181 @@ function ServicesSection() {
   );
 }
 
+function KarurHubSection() {
+  return (
+    <section id="karur-hub" className="border-t border-border bg-slate-50/80 py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+        <div className="mb-12 text-center sm:mb-16">
+          <div className="inline-flex items-center gap-2 rounded-full border border-royal/30 bg-royal/10 px-4 py-1.5 text-xs font-bold uppercase tracking-[0.25em] text-royal">
+            <MapPin className="h-3.5 w-3.5" />
+            <span>Karur Commercial & Technology Hub</span>
+          </div>
+          <h2 className="mt-4 font-display text-3xl font-black text-navy sm:text-4xl md:text-5xl">
+            Powering Businesses Across <span className="text-royal">Karur, Tamil Nadu</span>
+          </h2>
+          <p className="mx-auto mt-3 max-w-3xl text-sm leading-relaxed text-foreground/75 sm:text-base">
+            C-Entrepreneurs (also widely known as C Entrepreneurs) is the local technology partner that Karur textile exporters, retail showrooms, supermarkets, and service brands rely on for commercial software and market-dominating advertising.
+          </p>
+        </div>
+
+        {/* Two Featured Spotlight Cards */}
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
+          {/* Card 1: Software Company */}
+          <div className="group flex flex-col justify-between rounded-3xl border border-navy/15 bg-card p-7 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-royal hover:shadow-2xl sm:p-9">
+            <div>
+              <div className="flex items-center justify-between gap-2">
+                <span className="rounded-full bg-navy px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white">
+                  Technology & Software
+                </span>
+                <span className="text-xs font-semibold text-royal">
+                  Local Karur Support
+                </span>
+              </div>
+              <h3 className="mt-5 font-display text-2xl font-black text-navy sm:text-3xl">
+                Best Software Company in Karur
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-foreground/80 sm:text-[15px]">
+                Say goodbye to spreadsheet chaos. We build custom ERP systems for Karur textile looms and yarn stocks, offline-ready POS billing systems with thermal barcode printing for retail shops, and high-performance Android mobile apps.
+              </p>
+              <ul className="mt-6 space-y-2.5 text-xs font-semibold text-navy/85 sm:text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-royal shrink-0" />
+                  <span>Textile Loom, Dyeing & Yarn Stock ERP</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-royal shrink-0" />
+                  <span>Fast POS Billing Software with GST Compliance</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-royal shrink-0" />
+                  <span>Custom Android Apps & React/Next.js Web Platforms</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-royal shrink-0" />
+                  <span>Zero Recurring License Traps · 100% Data Ownership</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-border/80">
+              <Link
+                to="/software-company-in-karur"
+                className="inline-flex items-center gap-2 rounded-full bg-royal px-6 py-3 text-xs font-bold text-white shadow-md transition hover:bg-navy sm:text-sm"
+              >
+                <span>Explore Software in Karur</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+
+          {/* Card 2: Digital Marketing */}
+          <div className="group flex flex-col justify-between rounded-3xl border border-navy/15 bg-card p-7 shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-royal hover:shadow-2xl sm:p-9">
+            <div>
+              <div className="flex items-center justify-between gap-2">
+                <span className="rounded-full bg-royal px-3.5 py-1 text-xs font-bold uppercase tracking-wider text-white">
+                  Marketing & Revenue
+                </span>
+                <span className="text-xs font-semibold text-emerald-700">
+                  Proven High ROI
+                </span>
+              </div>
+              <h3 className="mt-5 font-display text-2xl font-black text-navy sm:text-3xl">
+                Best Digital Marketing Agency in Karur
+              </h3>
+              <p className="mt-3 text-sm leading-relaxed text-foreground/80 sm:text-[15px]">
+                Flood your business with paying inquiries. We rank your brand #1 in Google Maps (Karur Map Pack), manage laser-targeted Meta (Instagram/Facebook) ad campaigns, and drive verified B2B leads for Karur exporters.
+              </p>
+              <ul className="mt-6 space-y-2.5 text-xs font-semibold text-navy/85 sm:text-sm">
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>#1 Google Maps (Map Pack) Local SEO Ranking</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Targeted Instagram & Meta Ad Campaigns with High CTR</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Google Search Ads (PPC) Delivering Direct Call Leads</span>
+                </li>
+                <li className="flex items-center gap-2">
+                  <CheckCircle2 className="h-4 w-4 text-emerald-600 shrink-0" />
+                  <span>Bi-Lingual Copywriting in Tamil (தமிழ்) & English</span>
+                </li>
+              </ul>
+            </div>
+
+            <div className="mt-8 pt-6 border-t border-border/80">
+              <Link
+                to="/digital-marketing-in-karur"
+                className="inline-flex items-center gap-2 rounded-full bg-navy px-6 py-3 text-xs font-bold text-white shadow-md transition hover:bg-royal sm:text-sm"
+              >
+                <span>Explore Digital Marketing in Karur</span>
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* Local Area Coverage Banner */}
+        <div className="mt-10 rounded-2xl border border-navy/15 bg-white p-5 shadow-sm sm:p-7">
+          <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
+            <div>
+              <p className="text-xs font-bold uppercase tracking-wider text-royal">
+                Local Presence Across Karur District
+              </p>
+              <p className="mt-1 text-sm text-foreground/85">
+                Serving businesses in <strong>Karur Town (639001)</strong>, Kovai Road, Jawahar Bazaar, Thanthonimalai, Pasupathypuram, Vengamedu, Gandhigramam, and nearby cities (Trichy, Erode, Coimbatore).
+              </p>
+            </div>
+            <div className="flex items-center gap-3 shrink-0">
+              <a
+                href="tel:+919025360572"
+                className="inline-flex items-center gap-1.5 rounded-full border border-navy/20 px-4 py-2 text-xs font-bold text-navy transition hover:bg-navy hover:text-white sm:text-sm"
+              >
+                <Phone className="h-3.5 w-3.5" />
+                <span>Call Us</span>
+              </a>
+              <a
+                href="https://wa.me/919025360572?text=Hi%20C-Entrepreneurs%2C%20I%20want%20to%20grow%20my%20Karur%20business."
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 rounded-full bg-emerald-600 px-4 py-2 text-xs font-bold text-white transition hover:bg-emerald-700 sm:text-sm"
+              >
+                <MessageCircle className="h-3.5 w-3.5" />
+                <span>WhatsApp</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
+
 function FAQSection() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs = [
     {
+      q: "What is C Entrepreneurs (C-Entrepreneurs)?",
+      a: "C-Entrepreneurs (also known as C Entrepreneurs or C-Entrepreneur) is Karur's premier custom software company and full-service digital marketing agency based in Karur, Tamil Nadu. Operating under the motto 'BUILT | REVIVE | EXECUTE', the company builds enterprise software, POS billing solutions, mobile apps, and leads high-ROI digital marketing campaigns.",
+    },
+    {
       q: "Which is the best software company in Karur?",
-      a: "C-Entrepreneurs is recognized as the best software company in Karur, Tamil Nadu. We specialize in custom software development, enterprise web applications, Android apps, and automated POS billing software designed specifically for local businesses, textile manufacturers, and growing startups.",
+      a: "C-Entrepreneurs (C Entrepreneurs) is recognized as the best software company in Karur, Tamil Nadu. We specialize in custom software development, web applications, Android apps, and automated POS billing software designed specifically for local businesses, textile manufacturers, and growing startups.",
     },
     {
       q: "Which agency provides the best digital marketing in Karur?",
-      a: "C-Entrepreneurs offers the best digital marketing services in Karur, Tamil Nadu. Our expertise spans Local SEO, Google Business Profile optimization, Meta & Instagram Ads, Google PPC campaigns, and targeted lead generation to grow local businesses and export companies.",
+      a: "C-Entrepreneurs (C Entrepreneurs) offers the best digital marketing services in Karur, Tamil Nadu. Our expertise spans Local SEO, Google Business Profile optimization, Meta & Instagram Ads, Google PPC campaigns, and targeted lead generation to grow local businesses and export companies.",
     },
     {
       q: "Where can I get custom software and billing software in Karur?",
-      a: "You can get customized business software, ERP systems, and modern POS billing software in Karur directly from C-Entrepreneurs. We build secure, reliable software with local Karur support. Contact +91 90253 60572 or email centrepreneursb2c@gmail.com for a free consultation.",
+      a: "You can get customized business software, ERP systems, and modern POS billing software in Karur directly from C-Entrepreneurs (C Entrepreneurs). We build secure, reliable software with local Karur support. Contact +91 90253 60572 or email centrepreneursb2c@gmail.com for a free consultation.",
     },
     {
       q: "Does C-Entrepreneurs provide website development and mobile apps in Karur?",
-      a: "Yes, C-Entrepreneurs provides complete web development (React, Next.js, full-stack) and native Android/iOS mobile application development in Karur, Tamil Nadu with modern UI/UX design, cloud scalability, and continuous maintenance.",
+      a: "Yes, C-Entrepreneurs (C Entrepreneurs) provides complete web development (React, Next.js, full-stack) and native Android/iOS mobile application development in Karur, Tamil Nadu with modern UI/UX design, cloud scalability, and continuous maintenance.",
     },
     {
       q: "How can businesses and students get started with C-Entrepreneurs in Karur?",
